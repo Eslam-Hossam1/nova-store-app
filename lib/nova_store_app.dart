@@ -13,6 +13,7 @@ class NovaStoreApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
         theme: ThemeData(
           textTheme: GoogleFonts.interTextTheme(),
