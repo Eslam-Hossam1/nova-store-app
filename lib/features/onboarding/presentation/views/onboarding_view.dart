@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nova_store_app/features/onboarding/presentation/views/widgets/onboarding_view_body.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
@@ -7,9 +8,7 @@ class OnboardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Text('Onboarding Screen'),
-        ),
+        child: OnboardingViewBody(),
       ),
     );
   }
