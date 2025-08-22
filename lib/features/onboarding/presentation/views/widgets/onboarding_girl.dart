@@ -1,7 +1,5 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/utils/assets.dart';
 import 'package:nova_store_app/features/onboarding/presentation/resources/onboarding_colors.dart';
 
