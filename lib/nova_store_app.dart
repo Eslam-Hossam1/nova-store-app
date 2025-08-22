@@ -11,7 +11,6 @@ class NovaStoreApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      useInheritedMediaQuery: true,
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp.router(
