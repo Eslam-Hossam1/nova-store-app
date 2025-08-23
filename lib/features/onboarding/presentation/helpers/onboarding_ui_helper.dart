@@ -9,9 +9,10 @@ abstract class OnboardingUiHelper {
   static const double girlSizeRatio = 0.68;
   static const double bottomSheetSizeRatio = 1 - girlSizeRatio;
   static final double yellowbadgeheight = 146.h;
+  static const double badgeHiddenHeightRatio = 0.57;
   static double calculateBadgeBottomPosition(
       final double screenHeight, final double screenWidth) {
     return (screenHeight * bottomSheetSizeRatio).atLeast(bottomSheetMinHeight) -
-        (yellowbadgeheight / 2);
+        (yellowbadgeheight * badgeHiddenHeightRatio);
   }
 }
