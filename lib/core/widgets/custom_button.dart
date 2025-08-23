@@ -20,26 +20,21 @@ class CustomButton extends StatelessWidget {
   final double? verticalPadding;
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        minHeight: 48.h,
-      ),
-      child: SizedBox(
-        width: width,
-        child: TextButton(
-          style: TextButton.styleFrom(
-            backgroundColor: backgroundColor ?? AppColors.yellow,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
-            ),
+    return SizedBox(
+      width: width,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: backgroundColor ?? AppColors.yellow,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           ),
-          onPressed: onPressed,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: verticalPadding ?? 13.h,
-            ),
-            child: child,
+        ),
+        onPressed: onPressed,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: verticalPadding ?? 6.h,
           ),
+          child: child,
         ),
       ),
     );
