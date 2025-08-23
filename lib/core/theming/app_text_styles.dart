@@ -1,39 +1,69 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nova_store_app/core/utils/size_config.dart';
 
-abstract class AppTextStyle {
-  static final TextStyle bold25 = TextStyle(
-    fontSize: 25.sp,
-    fontWeight: FontWeight.w700,
-  );
+abstract class AppTextStyles {
+  static TextStyle bold25(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 25),
+    );
+  }
 
-  static final TextStyle bold19 = TextStyle(
-    fontSize: 19.sp,
-    fontWeight: FontWeight.w700,
-  );
+  static TextStyle bold19(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 19),
+    );
+  }
 
-  static final TextStyle bold17 = TextStyle(
-    fontSize: 17.sp,
-    fontWeight: FontWeight.w700,
-  );
+  static TextStyle bold17(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 17),
+    );
+  }
 
-  static final TextStyle regular14 = TextStyle(
-    fontSize: 14.sp,
-    fontWeight: FontWeight.w400,
-  );
+  static TextStyle regular14(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: _getResponsiveText(context, baseFontSize: 14),
+    );
+  }
 
-  static final TextStyle semiBold14 = TextStyle(
-    fontSize: 14.sp,
-    fontWeight: FontWeight.w600,
-  );
+  static TextStyle semiBold14(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w600,
+      fontSize: _getResponsiveText(context, baseFontSize: 14),
+    );
+  }
 
-  static final TextStyle regular11 = TextStyle(
-    fontSize: 11.sp,
-    fontWeight: FontWeight.w400,
-  );
+  static TextStyle regular11(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: _getResponsiveText(context, baseFontSize: 11),
+    );
+  }
 
-  static final TextStyle regular12 = TextStyle(
-    fontSize: 12.sp,
-    fontWeight: FontWeight.w400,
-  );
+  static TextStyle regular12(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: _getResponsiveText(context, baseFontSize: 12),
+    );
+  }
+
+  static double _getResponsiveText(context, {required double baseFontSize}) {
+    double scaleFactor = _getScaleFactor(context);
+    double responsizeTextFontSize = scaleFactor * baseFontSize;
+    double lowerLimit = baseFontSize * .75;
+
+    double upperLimit = baseFontSize * 1.25;
+
+    return responsizeTextFontSize.clamp(lowerLimit, upperLimit);
+  }
+
+  static double _getScaleFactor(context) {
+    double width = MediaQuery.sizeOf(context).width;
+
+    return width / SizeConfig.designWidth;
+  }
 }
