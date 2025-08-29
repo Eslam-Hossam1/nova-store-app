@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nova_store_app/core/di/service_locator.dart';
 import 'package:nova_store_app/core/extensions/clamping.dart';
+import 'package:nova_store_app/core/helpers/on_boarding_cache_helper.dart';
 import 'package:nova_store_app/core/theming/app_colors.dart';
 import 'package:nova_store_app/core/theming/app_text_styles.dart';
 import 'package:nova_store_app/core/utils/assets.dart';
@@ -21,7 +23,8 @@ class OnboardingBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        minHeight: (MediaQuery.sizeOf(context).height * bottomSheetSizeRatio).atLeast(
+        minHeight:
+            (MediaQuery.sizeOf(context).height * bottomSheetSizeRatio).atLeast(
           bottomSheetMinHeight,
         ),
       ),
@@ -57,7 +60,9 @@ class OnboardingBottomSheet extends StatelessWidget {
               ),
             ),
             verticalSpace(32),
-            GetStartedButton()
+            GetStartedButton(
+              onBoardingCacheHelper: getIt<OnBoardingCacheHelper>(),
+            )
           ],
         ),
       ),
