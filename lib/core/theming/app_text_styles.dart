@@ -22,6 +22,19 @@ abstract class AppTextStyles {
       fontSize: _getResponsiveText(context, baseFontSize: 17),
     );
   }
+  static TextStyle bold15(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 15),
+    );
+  }
+
+  static TextStyle regular17(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: _getResponsiveText(context, baseFontSize: 17),
+    );
+  }
 
   static TextStyle regular14(context) {
     return TextStyle(
