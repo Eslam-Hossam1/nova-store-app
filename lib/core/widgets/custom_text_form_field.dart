@@ -15,6 +15,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
+  final Widget? prefixIcon;
   const CustomTextFormField({
     this.onSaved,
     super.key,
@@ -28,14 +29,21 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.backgroundColor,
     this.validator,
+    this.prefixIcon,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: AppColors.lightPurple,
       onSaved: onSaved,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       decoration: InputDecoration(
+        prefixIcon: prefixIcon != null
+            ? Padding(
+                padding: const EdgeInsetsDirectional.only(start: 24, end: 10),
+                child: prefixIcon)
+            : null,
         isDense: true,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
