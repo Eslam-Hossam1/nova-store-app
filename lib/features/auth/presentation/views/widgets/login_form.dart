@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nova_store_app/core/theming/app_colors.dart';
 import 'package:nova_store_app/core/utils/spacing.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/auth_app_bar.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/dont_have_an_account.dart';
@@ -20,7 +21,9 @@ class _LoginFormState extends State<LoginForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   void enableAutoValidation() {
-    autovalidateMode = AutovalidateMode.always;
+    setState(() {
+      autovalidateMode = AutovalidateMode.always;
+    });
   }
 
   @override
@@ -37,6 +40,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             sliver: EnterEmailSection(),
           ),
+
           SliverFillRemaining(
             hasScrollBody: false,
             child: Align(

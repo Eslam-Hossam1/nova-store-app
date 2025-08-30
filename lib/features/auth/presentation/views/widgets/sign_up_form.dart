@@ -20,7 +20,9 @@ class _SignUpFormState extends State<SignUpForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   void enableAutoValidation() {
-    autovalidateMode = AutovalidateMode.always;
+   setState(() {
+      autovalidateMode = AutovalidateMode.always;
+   });
   }
 
   @override
