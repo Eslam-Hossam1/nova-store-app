@@ -20,6 +20,8 @@ abstract class AppColors {
 
   static const Color white = Color(0xffffffff);
 
+  static const Color dialogBackground = Color(0xFFF0F0F0);
+
   static const Color green = Color(0xff46ab62);
 
   static const List<Color> gradired = <Color>[
