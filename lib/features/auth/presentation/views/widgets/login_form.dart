@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/utils/spacing.dart';
-import 'package:nova_store_app/features/auth/presentation/views/widgets/already_have_an_account.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/auth_app_bar.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/dont_have_an_account.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/enter_email_section.dart';
-import 'package:nova_store_app/features/auth/presentation/views/widgets/sign_up_button.dart';
+import 'package:nova_store_app/features/auth/presentation/views/widgets/login_button.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -47,7 +46,7 @@ class _LoginFormState extends State<LoginForm> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SignUpButton(
+                    LoginButton(
                       formKey: formKey,
                       enableAutoValidation: enableAutoValidation,
                     ),
