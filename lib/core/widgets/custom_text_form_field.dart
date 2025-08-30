@@ -16,7 +16,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
   const CustomTextFormField({
-     this.onSaved,
+    this.onSaved,
     super.key,
     this.contentPadding,
     this.focusedBorder,
@@ -40,21 +40,12 @@ class CustomTextFormField extends StatelessWidget {
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
         focusedBorder: focusedBorder ??
-            OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.purple,
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.circular(8.r),
+            buildBorder(
+              AppColors.purple,
             ),
-        enabledBorder: enabledBorder ??
-            OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: AppColors.grayLight,
-                width: 2,
-              ),
-              borderRadius: BorderRadius.circular(8.r),
-            ),
+        focusedErrorBorder: buildBorder(Colors.red),
+        errorBorder: buildBorder(Colors.red),
+        enabledBorder: enabledBorder ?? buildBorder(AppColors.grayLight, 2),
         hintStyle: hintStyle ??
             AppTextStyles.regular14(context)
                 .copyWith(color: AppColors.darkGray),
@@ -65,6 +56,16 @@ class CustomTextFormField extends StatelessWidget {
       style: AppTextStyles.regular14(context)
           .copyWith(color: AppColors.darkPurple),
       validator: validator,
+    );
+  }
+
+  OutlineInputBorder buildBorder(Color color, [double width = 1.5]) {
+    return OutlineInputBorder(
+      borderSide: BorderSide(
+        color: color,
+        width: width,
+      ),
+      borderRadius: BorderRadius.circular(8.r),
     );
   }
 }
