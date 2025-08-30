@@ -17,7 +17,7 @@ class AuthAppBar extends StatelessWidget {
             bottomRight: Radius.circular(300.r),
           ),
           gradient: LinearGradient(
-            colors: AppColors.gradi,
+            colors: AppColors.purpleGradient,
             begin: Alignment.centerRight,
             end: Alignment.centerLeft,
           ),

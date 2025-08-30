@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static const List<Color> gradi = <Color>[
+  static const List<Color> purpleGradient = <Color>[
     Color(0xff845fa1),
     Color(0xff34283e),
   ];
@@ -24,7 +24,7 @@ abstract class AppColors {
 
   static const Color green = Color(0xff46ab62);
 
-  static const List<Color> gradired = <Color>[
+  static const List<Color> redGradient = <Color>[
     Color(0xffd23a3a),
     Color(0xfff49763),
   ];

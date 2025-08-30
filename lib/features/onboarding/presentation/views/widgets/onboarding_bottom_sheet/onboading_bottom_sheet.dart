@@ -35,7 +35,7 @@ class OnboardingBottomSheet extends StatelessWidget {
           topRight: Radius.circular(40.r),
         ),
         gradient: LinearGradient(
-          colors: AppColors.gradi,
+          colors: AppColors.purpleGradient,
           begin: Alignment.centerRight,
           end: Alignment.centerLeft,
         ),
