@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
-import 'package:nova_store_app/core/errors/api_failure.dart';
+import 'package:nova_store_app/core/errors/network_failure.dart';
 
 abstract interface class AuthRepo {
-  Future<Either<ApiFailure, void>> login(
+  Future<Either<NetworkFailure, void>> login(
     String email,
   );
-  Future<Either<ApiFailure, void>> signUp(
+  Future<Either<NetworkFailure, void>> signUp(
     String email,
   );
 }
