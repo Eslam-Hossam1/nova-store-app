@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:nova_store_app/core/api/api_consumer.dart';
-import 'package:nova_store_app/core/api/end_ponits.dart';
+import 'package:nova_store_app/core/api/end_points.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioConsumer extends ApiConsumer {
