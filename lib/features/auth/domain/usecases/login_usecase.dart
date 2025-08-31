@@ -1,15 +1,16 @@
 import 'package:dartz/dartz.dart';
-import 'package:nova_store_app/core/errors/network_failure.dart';
+import 'package:nova_store_app/core/errors/api_failure.dart';
+import 'package:nova_store_app/core/errors/failures.dart';
 import 'package:nova_store_app/core/usecases/usecase.dart';
 import 'package:nova_store_app/features/auth/domain/repos/auth_repo.dart';
 
-class LoginUsecase implements Usecase<NetworkFailure,void, LoginParams> {
+class LoginUsecase implements Usecase<ApiFailure,void, LoginParams> {
   final AuthRepo authRepo;
 
   LoginUsecase({required this.authRepo});
 
   @override
-  Future<Either<NetworkFailure, void>> call(LoginParams params) async {
+  Future<Either<ApiFailure, void>> call(LoginParams params) async {
     return await authRepo.login(params.email);
   }
 }

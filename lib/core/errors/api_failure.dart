@@ -1,7 +1,7 @@
 
-import 'package:nova_store_app/core/errors/network_failure.dart';
+import 'package:nova_store_app/core/errors/failures.dart';
 
-abstract class ApiFailure extends NetworkFailure {
+abstract class ApiFailure extends Failure {
   final String errorCode;
   const ApiFailure(super.errMsg, this.errorCode);
 }

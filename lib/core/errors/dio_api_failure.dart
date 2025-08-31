@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 import 'package:nova_store_app/core/errors/api_error_model/api_error_model.dart';
-import 'package:nova_store_app/core/errors/api_failure.dart';
 import 'package:dio/dio.dart';
+import 'package:nova_store_app/core/errors/api_failure.dart';
 import 'package:nova_store_app/core/errors/error_codes.dart';
 
 class DioApiFailure extends ApiFailure {
@@ -106,5 +108,23 @@ class DioApiFailure extends ApiFailure {
           ErrorCodes.unknownError,
         );
     }
+  }
+  factory DioApiFailure.unknownException({
+    required String unKnownExceptionMsg,
+    String errMsg = "UnKnown Error",
+  }) {
+    log("UnKnownFailure: $unKnownExceptionMsg");
+    return DioApiFailure(
+      errMsg,
+      ErrorCodes.unknownError,
+    );
+  }
+  factory DioApiFailure.noInternetConnection({
+    String errMsg = "No Internet Connection",
+  }) {
+    return DioApiFailure(
+      errMsg,
+      ErrorCodes.noInternetConnection,
+    );
   }
 }
