@@ -34,7 +34,6 @@ Future<void> setupServiceLocator() async {
     AuthRepoImpl(
       authRemoteDataSource:
           AuthRemoteDataSourceImpl(apiConsumer: getIt<DioConsumer>()),
-      internetChecker: getIt(),
     ),
   );
 }
