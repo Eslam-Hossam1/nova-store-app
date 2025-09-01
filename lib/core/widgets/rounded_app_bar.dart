@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/theme/app_colors.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
 
-class AuthAppBar extends StatelessWidget {
-  const AuthAppBar({super.key, required this.title});
+class RoundedAppBar extends StatelessWidget {
+  const RoundedAppBar({super.key, required this.title});
   final String title;
   @override
   Widget build(BuildContext context) {

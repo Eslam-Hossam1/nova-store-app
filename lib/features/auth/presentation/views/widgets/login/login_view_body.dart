@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/utils/spacing.dart';
 import 'package:nova_store_app/features/auth/presentation/manager/login_cubit/login_cubit.dart';
-import 'package:nova_store_app/features/auth/presentation/views/widgets/auth_app_bar.dart';
+import 'package:nova_store_app/core/widgets/rounded_app_bar.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/login/dont_have_an_account.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/enter_email_section.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/login/login_button_builder.dart';
@@ -32,18 +32,17 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       autovalidateMode: autovalidateMode,
       child: CustomScrollView(
         slivers: [
-          AuthAppBar(title: 'Login'),
+          RoundedAppBar(title: 'Login'),
           SliverPadding(
             padding: EdgeInsets.symmetric(
               horizontal: 24.w,
             ),
             sliver: EnterEmailSection(
-               onSaved: (email) {
+              onSaved: (email) {
                 context.read<LoginCubit>().email = email!;
               },
             ),
           ),
-
           SliverFillRemaining(
             hasScrollBody: false,
             child: Align(
