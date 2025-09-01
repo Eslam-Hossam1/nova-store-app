@@ -39,6 +39,7 @@ class CustomTextFormField extends StatelessWidget {
       onSaved: onSaved,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       decoration: InputDecoration(
+        errorMaxLines: 2,
         prefixIcon: prefixIcon != null
             ? Padding(
                 padding: const EdgeInsetsDirectional.only(start: 24, end: 10),
