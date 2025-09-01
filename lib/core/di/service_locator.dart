@@ -32,7 +32,7 @@ Future<void> setupServiceLocator() async {
   );
   getIt.registerSingleton<AuthRepoImpl>(
     AuthRepoImpl(
-      authRemoteDataSource: AuthRemoteDataSourceImpl(apiConsumer: getIt()),
+      authRemoteDataSource: AuthRemoteDataSourceImpl(apiConsumer: getIt<DioConsumer>()),
       internetChecker: getIt(),
     ),
   );
