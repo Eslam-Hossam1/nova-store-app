@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/utils/spacing.dart';
+import 'package:nova_store_app/features/auth/presentation/manager/cubit/sign_up_cubit.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/already_have_an_account.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/auth_app_bar.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/enter_email_section.dart';
-import 'package:nova_store_app/features/auth/presentation/views/widgets/sign_up_button.dart';
+import 'package:nova_store_app/features/auth/presentation/views/widgets/sign_up_button_builder.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({
@@ -20,9 +22,9 @@ class _SignUpFormState extends State<SignUpForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   void enableAutoValidation() {
-   setState(() {
+    setState(() {
       autovalidateMode = AutovalidateMode.always;
-   });
+    });
   }
 
   @override
@@ -37,7 +39,11 @@ class _SignUpFormState extends State<SignUpForm> {
             padding: EdgeInsets.symmetric(
               horizontal: 24.w,
             ),
-            sliver: EnterEmailSection(),
+            sliver: EnterEmailSection(
+              onSaved: (email) {
+                context.read<SignUpCubit>().email = email!;
+              },
+            ),
           ),
           SliverFillRemaining(
             hasScrollBody: false,
@@ -48,7 +54,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SignUpButton(
+                    SignUpButtonBuilder(
                       formKey: formKey,
                       enableAutoValidation: enableAutoValidation,
                     ),
