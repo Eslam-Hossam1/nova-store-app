@@ -4,7 +4,7 @@ import 'package:nova_store_app/core/di/service_locator.dart';
 import 'package:nova_store_app/core/routing/routes_paths.dart';
 import 'package:nova_store_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:nova_store_app/features/auth/domain/usecases/sign_up_usecase.dart';
-import 'package:nova_store_app/features/auth/presentation/manager/cubit/sign_up_cubit.dart';
+import 'package:nova_store_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:nova_store_app/features/auth/presentation/views/login_view.dart';
 import 'package:nova_store_app/features/auth/presentation/views/sign_up_view.dart';
 

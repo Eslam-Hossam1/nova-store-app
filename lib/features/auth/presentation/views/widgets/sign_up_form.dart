@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/utils/spacing.dart';
-import 'package:nova_store_app/features/auth/presentation/manager/cubit/sign_up_cubit.dart';
+import 'package:nova_store_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/already_have_an_account.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/auth_app_bar.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/enter_email_section.dart';
