@@ -1,8 +1,8 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:nova_store_app/core/api/dio_consumer.dart';
-import 'package:nova_store_app/core/api/internet_checker.dart';
+import 'package:nova_store_app/core/api/network_connection_checker_impl.dart';
 import 'package:nova_store_app/core/cache/shared_pref/shared_prefernce_helper.dart';
 import 'package:nova_store_app/core/helpers/on_boarding_cache_helper.dart';
 import 'package:nova_store_app/features/auth/data/data_sources/auth_remote_data_source_impl.dart';
@@ -25,14 +25,15 @@ Future<void> setupServiceLocator() async {
       dio: Dio(),
     ),
   );
-  getIt.registerSingleton<InternetChecker>(
-    InternetChecker(
-      connectionChecker: InternetConnectionChecker.instance,
+  getIt.registerSingleton<NetworkConnectionCheckerImpl>(
+    NetworkConnectionCheckerImpl(
+      connectivity: Connectivity(),
     ),
   );
   getIt.registerSingleton<AuthRepoImpl>(
     AuthRepoImpl(
-      authRemoteDataSource: AuthRemoteDataSourceImpl(apiConsumer: getIt<DioConsumer>()),
+      authRemoteDataSource:
+          AuthRemoteDataSourceImpl(apiConsumer: getIt<DioConsumer>()),
       internetChecker: getIt(),
     ),
   );
