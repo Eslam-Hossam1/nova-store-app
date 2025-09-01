@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nova_store_app/core/helpers/dialog_helper.dart';
-import 'package:nova_store_app/features/auth/presentation/manager/cubit/sign_up_cubit.dart';
+import 'package:nova_store_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/sign_up_view_body.dart';
 
-class SignUpView extends StatelessWidget {
+class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
 
   @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView>  {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:  SignUpViewBody(),
+    return BlocListener<SignUpCubit, SignUpState>(
+      listener: (context, state) {
+        if (state is SignUpFailure) {
+          DialogHelper.showErrorDialog(
+            context,
+            errorMessage: state.errMsg,
+          );
+        }else if (state is SignUpSuccess) {
+          //Todo: navigate to verify email screen
+        }
+      },
+      child: Scaffold(
+        body: SignUpViewBody(),
+      ),
     );
   }
 }
