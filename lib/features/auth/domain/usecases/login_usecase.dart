@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:nova_store_app/core/errors/api_failure.dart';
-import 'package:nova_store_app/core/errors/failures.dart';
 import 'package:nova_store_app/core/usecases/usecase.dart';
 import 'package:nova_store_app/features/auth/domain/repos/auth_repo.dart';
 
