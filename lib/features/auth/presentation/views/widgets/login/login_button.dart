@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nova_store_app/core/widgets/Custom_text_button.dart';
+import 'package:nova_store_app/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({
@@ -18,7 +20,7 @@ class LoginButton extends StatelessWidget {
       onPressed: () {
         if (formKey.currentState!.validate()) {
           formKey.currentState!.save();
-          // Proceed with the Login logic
+          context.read<LoginCubit>().login();
         } else {
           enableAutoValidation();
         }
