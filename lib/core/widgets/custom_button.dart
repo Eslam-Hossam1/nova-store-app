@@ -7,14 +7,14 @@ class CustomButton extends StatelessWidget {
     super.key,
     this.backgroundColor,
     required this.child,
-    required this.onPressed,
+    this.onPressed,
     this.width,
     this.borderRadius,
     this.verticalPadding,
   });
   final Color? backgroundColor;
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double? width;
   final double? borderRadius;
   final double? verticalPadding;
@@ -22,6 +22,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
+      height: 64.h - 6.h,
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: backgroundColor ?? AppColors.yellow,
