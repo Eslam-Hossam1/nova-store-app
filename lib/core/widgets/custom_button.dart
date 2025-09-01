@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nova_store_app/core/theming/app_colors.dart';
+import 'package:nova_store_app/core/theme/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     this.backgroundColor,
     required this.child,
-    required this.onPressed,
+    this.onPressed,
     this.width,
     this.borderRadius,
     this.verticalPadding,
   });
   final Color? backgroundColor;
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double? width;
   final double? borderRadius;
   final double? verticalPadding;
@@ -22,6 +22,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
+      height: 64.h - 6.h,
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: backgroundColor ?? AppColors.yellow,

@@ -1,8 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:nova_store_app/core/routing/app_router.dart';
+import 'package:nova_store_app/core/theme/app_themes.dart';
 import 'package:nova_store_app/core/utils/size_config.dart';
 
 class NovaStoreApp extends StatelessWidget {
@@ -19,10 +19,7 @@ class NovaStoreApp extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
-        theme: ThemeData(
-          textTheme: GoogleFonts.interTextTheme(),
-          scaffoldBackgroundColor: Colors.white,
-        ),
+        theme: AppThemes.lightTheme,
       ),
     );
   }

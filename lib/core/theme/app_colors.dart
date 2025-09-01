@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static const List<Color> gradi = <Color>[
+  static const List<Color> purpleGradient = <Color>[
     Color(0xff845fa1),
     Color(0xff34283e),
   ];
 
-  static const Color dark = Color(0xff34283e);
+  static const Color darkPurple = Color(0xff34283e);
 
   static const Color gray = Color(0xff9b9b9b);
 
@@ -20,12 +20,16 @@ abstract class AppColors {
 
   static const Color white = Color(0xffffffff);
 
+  static const Color dialogBackground = Color(0xFFF0F0F0);
+
   static const Color green = Color(0xff46ab62);
 
-  static const List<Color> gradired = <Color>[
+  static const List<Color> redGradient = <Color>[
     Color(0xffd23a3a),
     Color(0xfff49763),
   ];
 
   static const Color bg = Color(0xfff4f3f4);
+  static const Color purple = Color(0xff553E67);
+  static const Color lightPurple = Color(0xff553E67);
 }
