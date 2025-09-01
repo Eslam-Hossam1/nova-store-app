@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nova_store_app/core/helpers/dialog_helper.dart';
 import 'package:nova_store_app/core/mixins/no_internet_mixin.dart';
 import 'package:nova_store_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
-import 'package:nova_store_app/features/auth/presentation/views/widgets/sign_up_view_body.dart';
+import 'package:nova_store_app/features/auth/presentation/views/widgets/sign_up/sign_up_view_body.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
