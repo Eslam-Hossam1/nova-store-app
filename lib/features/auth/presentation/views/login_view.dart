@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nova_store_app/core/helpers/dialog_helper.dart';
 import 'package:nova_store_app/core/mixins/no_internet_mixin.dart';
+import 'package:nova_store_app/core/routing/routes_paths.dart';
 import 'package:nova_store_app/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/login/login_view_body.dart';
 
@@ -23,7 +25,7 @@ class _LoginViewState extends State<LoginView> with NoInternetMixin {
             errorMessage: state.errMsg,
           );
         }else if (state is LoginSuccess) {
-          //Todo: navigate to verify email screen
+          context.push(RoutePaths.otp);
         }
       },
       child: Scaffold(
