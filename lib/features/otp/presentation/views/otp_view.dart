@@ -6,8 +6,11 @@ class OtpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: OtpViewBody(),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        body: OtpViewBody(),
+      ),
     );
   }
 }
