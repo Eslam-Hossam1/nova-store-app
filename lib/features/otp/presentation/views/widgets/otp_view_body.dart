@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/utils/spacing.dart';
 import 'package:nova_store_app/core/widgets/rounded_app_bar.dart';
 import 'package:nova_store_app/features/otp/presentation/views/widgets/enter_otp_section.dart';
+import 'package:nova_store_app/features/otp/presentation/views/widgets/resend_code/resend_code_active_button.dart';
+import 'package:nova_store_app/features/otp/presentation/views/widgets/resend_code/resend_code_with_timer.dart';
 import 'package:nova_store_app/features/otp/presentation/views/widgets/verify_button.dart';
 
 class OtpViewBody extends StatelessWidget {
@@ -29,6 +31,8 @@ class OtpViewBody extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   VerifyButton(),
+                  verticalSpace(16.h),
+                  ResendCodeActiveButton()
                 ],
               ),
             ),
