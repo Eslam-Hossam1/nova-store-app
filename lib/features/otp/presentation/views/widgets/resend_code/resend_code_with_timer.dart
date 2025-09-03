@@ -16,7 +16,7 @@ class ResendCodeWithTimer extends StatelessWidget {
       children: [
         Text('Resend code on email in ', style: textStyle),
         CountdownTimer(
-          seconds: 60,
+          seconds: 15,
           timertextStyle: textStyle,
         ),
       ],

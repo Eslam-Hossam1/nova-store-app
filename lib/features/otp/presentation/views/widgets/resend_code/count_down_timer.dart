@@ -1,13 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:nova_store_app/core/theme/app_colors.dart';
-import 'package:nova_store_app/core/theme/app_text_styles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nova_store_app/features/otp/presentation/manager/cubit/otp_cubit.dart';
 
 class CountdownTimer extends StatefulWidget {
   final int seconds;
   final TextStyle timertextStyle;
-  const CountdownTimer({super.key, required this.seconds, required this.timertextStyle});
+  const CountdownTimer(
+      {super.key, required this.seconds, required this.timertextStyle});
 
   @override
   State<CountdownTimer> createState() => CountdownTimerState();
@@ -43,7 +44,7 @@ class CountdownTimerState extends State<CountdownTimer> {
 
   void _onFinish(Timer timer) {
     timer.cancel();
-    // context.read<otp>().showActiveResendCodeButton();
+    context.read<OtpCubit>().showResendButton();
   }
 
   String _formatTime(int seconds) {
@@ -61,7 +62,7 @@ class CountdownTimerState extends State<CountdownTimer> {
   Widget build(BuildContext context) {
     return Text(
       _formatTime(_remainingSeconds),
-      style:widget.timertextStyle
+      style: widget.timertextStyle,
     );
   }
 }
