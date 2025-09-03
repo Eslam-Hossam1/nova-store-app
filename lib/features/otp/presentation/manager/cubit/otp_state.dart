@@ -1,6 +1,5 @@
 part of 'otp_cubit.dart';
 
-
 sealed class OtpState {}
 
 final class OtpInitial extends OtpState {}
@@ -15,5 +14,6 @@ final class OtpFailure extends OtpState {
 
 final class OtpShowResendButton extends OtpState {}
 
-final class SendOtpSuccess extends OtpState {}
+final class ReSendOtpSuccess extends OtpState {}
+
 final class VerifyOtpSuccess extends OtpState {}

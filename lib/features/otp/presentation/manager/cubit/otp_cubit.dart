@@ -9,7 +9,7 @@ class OtpCubit extends Cubit<OtpState> {
   final SendOtpUsecase _sendOtpUsecase;
   final VerifyOtpUsecase _verifyOtpUsecase;
   final OtpReason otpReason;
-
+  String pinCode = '';
   OtpCubit({
     required VerifyOtpUsecase verifyOtpUsecase,
     required SendOtpUsecase sendOtpUsecase,
@@ -31,15 +31,15 @@ class OtpCubit extends Cubit<OtpState> {
           errMsg: failure.errMsg,
         ),
       ),
-      (_) => emit(
-        SendOtpSuccess(),
+      (success) => emit(
+        ReSendOtpSuccess(),
       ),
     );
   }
 
   void showResendButton() => emit(OtpShowResendButton());
 
-  Future<void> verfiyVerificationCode({required String pinCode}) async {
+  Future<void> verfiyVerificationCode() async {
     emit(OtpLoading());
     var otpResult = await _verifyOtpUsecase.call(
       VerifyOtpParams(
@@ -54,9 +54,12 @@ class OtpCubit extends Cubit<OtpState> {
           errMsg: failure.errMsg,
         ),
       ),
-      (_) => emit(
-        VerifyOtpSuccess(),
-      ),
+      (otpResult) async {
+        await otpReason.onSuccess(otpResult);
+        emit(
+          VerifyOtpSuccess(),
+        );
+      },
     );
   }
 }
