@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nova_store_app/core/helpers/dialog_helper.dart';
 import 'package:nova_store_app/core/mixins/no_internet_mixin.dart';
-import 'package:nova_store_app/core/routing/routes_paths.dart';
+import 'package:nova_store_app/core/routing/routing_helper.dart';
 import 'package:nova_store_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:nova_store_app/features/auth/presentation/views/widgets/sign_up/sign_up_view_body.dart';
+import 'package:nova_store_app/features/otp/data/models/auth_otp/auth_otp_reason.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -25,7 +25,12 @@ class _SignUpViewState extends State<SignUpView> with NoInternetMixin {
             errorMessage: state.errMsg,
           );
         } else if (state is SignUpSuccess) {
-          context.push(RoutePaths.otp);
+            RoutingHelper.pushOtp(
+            context,
+            otpReason: AuthOtpReason(
+              email: context.read<SignUpCubit>().email,
+            ),
+          );
         }
       },
       child: Scaffold(
