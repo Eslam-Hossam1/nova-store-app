@@ -41,7 +41,6 @@ class EnterOtpSection extends StatelessWidget {
           ),
           SizedBox(height: 32.h),
           CustomPinCodeField(
-            
             onSaved: (pinCode) {
               otpCubit.pinCode = pinCode!;
             },
