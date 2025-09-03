@@ -10,17 +10,13 @@ class OtpRemoteDataSourceImpl implements OtpRemoteDataSource {
   OtpRemoteDataSourceImpl({required ApiConsumer apiConsumer})
       : _apiConsumer = apiConsumer;
   @override
-  Future<OtpResult> sendOtp({required OtpReason<OtpResult> otpReason}) async {
-    final response = await _apiConsumer.post(
+  Future<void> sendOtp({required OtpReason<OtpResult> otpReason}) async {
+    await _apiConsumer.post(
       otpReason.sendOtpEndpoint,
       data: {
         ApiKeys.email: otpReason.email,
       },
     );
-    OtpResult otpResult = otpReason.resultBuilder(
-      response as Map<String, dynamic>,
-    );
-    return otpResult;
   }
 
   @override

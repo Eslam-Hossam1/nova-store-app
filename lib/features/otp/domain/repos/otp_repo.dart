@@ -8,7 +8,7 @@ abstract interface class OtpRepo{
     required OtpReason otpReason,
     required String pinCode,
   });
-  Future<Either<ApiFailure, OtpResult>> sendOtp({
+  Future<Either<ApiFailure, void>> sendOtp({
     required OtpReason otpReason,
   });
 }

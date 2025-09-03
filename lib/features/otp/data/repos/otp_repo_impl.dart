@@ -13,13 +13,14 @@ class OtpRepoImpl implements OtpRepo {
   OtpRepoImpl({required OtpRemoteDataSource otpRemoteDataSource})
       : _otpRemoteDataSource = otpRemoteDataSource;
   @override
-  Future<Either<ApiFailure, OtpResult>> sendOtp(
-      {required OtpReason<OtpResult> otpReason}) async {
+  Future<Either<ApiFailure, void>> sendOtp({
+    required OtpReason<OtpResult> otpReason,
+  }) async {
     try {
-      final OtpResult otpResult = await _otpRemoteDataSource.sendOtp(
+      await _otpRemoteDataSource.sendOtp(
         otpReason: otpReason,
       );
-      return Right(otpResult);
+      return Right(null);
     } on Exception catch (e) {
       if (e is DioException) {
         return Left(
@@ -36,8 +37,9 @@ class OtpRepoImpl implements OtpRepo {
 
   @override
   Future<Either<ApiFailure, OtpResult>> verifyOtp(
-      {required OtpReason<OtpResult> otpReason, required String pinCode}) async{
-     try {
+      {required OtpReason<OtpResult> otpReason,
+      required String pinCode}) async {
+    try {
       final OtpResult otpResult = await _otpRemoteDataSource.verifyOtp(
         otpReason: otpReason,
         pinCode: pinCode,
