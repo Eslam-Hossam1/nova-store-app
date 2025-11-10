@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nova_store_app/core/Functions/custom_awesome_dialog.dart';
 
 abstract class DialogHelper {
@@ -90,4 +91,20 @@ abstract class DialogHelper {
       onDismissCallback: onDismissCallback,
     ).show();
   }
+
+  static void showCustomExitConfirmationDialog(BuildContext context,
+      {String? errorMessage, void Function()? btnOkOnPress}) {
+    DialogHelper.showWarningDialog(
+      context,
+      errorMessage: errorMessage ?? _warningExitConfirmationMessage,
+      btnOkOnPress: btnOkOnPress ?? () => context.pop(),
+      btnOkColor: Colors.red,
+      btnOkText: 'Exit',
+      btnCancelColor: Colors.green,
+      btnCanceltext: "Stay",
+    );
+  }
+
+  static final String _warningExitConfirmationMessage =
+      "Are you sure you want to leave? You haven’t completed the verification yet and you may lose your progress.";
 }
