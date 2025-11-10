@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nova_store_app/core/theme/app_colors.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
+import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/features/otp/presentation/views/widgets/resend_code/count_down_timer.dart';
 
 class ResendCodeWithTimer extends StatelessWidget {
@@ -9,7 +9,7 @@ class ResendCodeWithTimer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle textStyle = AppTextStyles.semiBold14(context).copyWith(
-      color: AppColors.gray,
+      color: context.secondaryTextColor,
     );
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

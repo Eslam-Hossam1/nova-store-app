@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nova_store_app/core/theme/app_colors.dart';
+import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 
 class CustomCircularProgressIndicator extends StatelessWidget {
   const CustomCircularProgressIndicator({
@@ -10,7 +11,7 @@ class CustomCircularProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircularProgressIndicator(
-      color: color ?? AppColors.purple,
+      color: color ?? context.primaryColor,
     );
   }
 }

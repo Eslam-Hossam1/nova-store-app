@@ -6,13 +6,13 @@ import 'package:nova_store_app/nova_store_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Run all initializations
   await AppInitializer.initialize();
 
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
+      enabled: kReleaseMode,
       builder: (context) => const NovaStoreApp(),
     ),
   );

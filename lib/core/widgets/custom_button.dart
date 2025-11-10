@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nova_store_app/core/theme/app_colors.dart';
+import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -25,7 +25,7 @@ class CustomButton extends StatelessWidget {
       height: 64.h - 6.h,
       child: TextButton(
         style: TextButton.styleFrom(
-          backgroundColor: backgroundColor ?? AppColors.yellow,
+          backgroundColor: backgroundColor ?? context.secondaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           ),

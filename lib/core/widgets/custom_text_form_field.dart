@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nova_store_app/core/theme/app_colors.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
+import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
@@ -35,7 +35,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      cursorColor: AppColors.lightPurple,
+      cursorColor: context.primaryColor,
       onSaved: onSaved,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       decoration: InputDecoration(
@@ -50,20 +50,24 @@ class CustomTextFormField extends StatelessWidget {
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
         focusedBorder: focusedBorder ??
             buildBorder(
-              AppColors.purple,
+              context.primaryColor,
             ),
         focusedErrorBorder: buildBorder(Colors.red),
         errorBorder: buildBorder(Colors.red),
-        enabledBorder: enabledBorder ?? buildBorder(AppColors.grayLight, 2),
+        enabledBorder: enabledBorder ??
+            buildBorder(
+              context.secondaryTextColor,
+            ),
         hintStyle: hintStyle ??
-            AppTextStyles.regular14(context)
-                .copyWith(color: AppColors.darkGray),
+            AppTextStyles.regular14(context).copyWith(
+              color: context.secondaryTextColor,
+            ),
         hintText: hintText,
         suffixIcon: suffixIcon,
       ),
       obscureText: isObscureText ?? false,
       style: AppTextStyles.regular14(context)
-          .copyWith(color: AppColors.darkPurple),
+          .copyWith(color: context.mainTextColor),
       validator: validator,
     );
   }

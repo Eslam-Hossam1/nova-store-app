@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:nova_store_app/core/theme/app_colors.dart';
+import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/core/utils/size_config.dart';
 
 abstract class AppTextStyles {
@@ -76,7 +77,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: _getResponsiveText(context, baseFontSize: 20),
-      color: AppColors.darkPurple
+      color: context.primaryColor
     );
   }
 
@@ -84,7 +85,7 @@ abstract class AppTextStyles {
     return TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: _getResponsiveText(context, baseFontSize: 14),
-      color: AppColors.darkPurple
+      color: context.primaryColor
     );
   }
 
