@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/theme/app_colors.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
+import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/core/widgets/custom_pin_code_field.dart';
 import 'package:nova_store_app/features/otp/presentation/manager/cubit/otp_cubit.dart';
 
@@ -20,21 +21,21 @@ class EnterOtpSection extends StatelessWidget {
           Text(
             'Please enter verification code sent to',
             style: AppTextStyles.regular17(context).copyWith(
-              color: AppColors.darkPurple,
-            ),
+              color: context.mainTextColor,
+            ),  
           ),
           RichText(
             text: TextSpan(children: [
               TextSpan(
                 text: 'your email: ',
                 style: AppTextStyles.regular17(context).copyWith(
-                  color: AppColors.darkPurple,
+                  color: context.mainTextColor,
                 ),
               ),
               TextSpan(
                 text: otpCubit.otpReason.email,
                 style: AppTextStyles.regular14(context).copyWith(
-                  color: AppColors.darkPurple,
+                  color: context.outlineColor,
                 ),
               )
             ]),
