@@ -15,11 +15,11 @@ class HomeAppBar extends StatelessWidget {
     return CustomPurpleGradientAppBar(
       leadingWidget: SvgPicture.asset(
         Assets.imagesSvgsMenu,
-        width: 24.w.clampLessEighthAndMoreEighth(),
+        width: 24.w.clampLessEighthAndMoreEighth(24),
       ),
       trailingWidget: SvgPicture.asset(
         Assets.imagesSvgsBell,
-        width: 24.w.clampLessEighthAndMoreEighth(),
+        width: 24.w.clampLessEighthAndMoreEighth(24),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:nova_store_app/core/theme/app_colors.dart';
 import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/core/utils/size_config.dart';
 

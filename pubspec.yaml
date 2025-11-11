@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   awesome_dialog: ^3.2.1
+  cached_network_image: ^3.4.1
   connectivity_plus: ^6.1.5
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
@@ -70,6 +71,7 @@ flutter:
   assets:
     - assets/images/svgs/
     - assets/images/pngs/
+    - assets/images/jpgs/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see
