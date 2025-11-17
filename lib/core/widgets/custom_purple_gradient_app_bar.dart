@@ -17,7 +17,7 @@ class CustomPurpleGradientAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
-        height: kToolbarHeight + 66.h,
+        height: 70.h,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: getPurpleGradient(context),

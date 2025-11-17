@@ -9,6 +9,12 @@ abstract class AppTextStyles {
       fontSize: _getResponsiveText(context, baseFontSize: 25),
     );
   }
+  static TextStyle bold11(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 11),
+    );
+  }
 
   static TextStyle bold19(context) {
     return TextStyle(
