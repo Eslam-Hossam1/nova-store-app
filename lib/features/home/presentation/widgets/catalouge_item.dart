@@ -30,9 +30,11 @@ class _CatalogueItemState extends State<CatalogueItem> {
             child: CustomCachedNetworkImage(
               url: Constants.categoryImageUrlTest,
               onLoadingComplete: () {
-                setState(() {
-                  _imageLoaded = true;
-                });
+                if (mounted) {
+                  setState(() {
+                    _imageLoaded = true;
+                  });
+                }
               },
             ),
           ),
