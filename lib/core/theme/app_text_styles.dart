@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:nova_store_app/core/theme/app_colors.dart';
 import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/core/utils/size_config.dart';
 
@@ -8,6 +7,12 @@ abstract class AppTextStyles {
     return TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: _getResponsiveText(context, baseFontSize: 25),
+    );
+  }
+  static TextStyle bold11(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 11),
     );
   }
 

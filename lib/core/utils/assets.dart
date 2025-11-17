@@ -2,6 +2,10 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesJpgsImagePlaceholder
+  /// assets/images/jpgs/image_placeholder.jpg
+  static const String imagesJpgsImagePlaceholder = "assets/images/jpgs/image_placeholder.jpg";
+
   /// Assets for imagesPngsOnboardingGirl
   /// assets/images/pngs/onboarding_girl.png
   static const String imagesPngsOnboardingGirl = "assets/images/pngs/onboarding_girl.png";
@@ -14,9 +18,17 @@ class Assets {
   /// assets/images/pngs/splash_logo.png
   static const String imagesPngsSplashLogo = "assets/images/pngs/splash_logo.png";
 
+  /// Assets for imagesSvgsBell
+  /// assets/images/svgs/bell.svg
+  static const String imagesSvgsBell = "assets/images/svgs/bell.svg";
+
   /// Assets for imagesSvgsEmailIcon
   /// assets/images/svgs/email_icon.svg
   static const String imagesSvgsEmailIcon = "assets/images/svgs/email_icon.svg";
+
+  /// Assets for imagesSvgsMenu
+  /// assets/images/svgs/menu.svg
+  static const String imagesSvgsMenu = "assets/images/svgs/menu.svg";
 
   /// Assets for imagesSvgsNovaStore
   /// assets/images/svgs/NovaStore.svg

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nova_store_app/core/theme/app_colors.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
-import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
+import 'package:nova_store_app/core/Functions/get_purple_gradient.dart';
 
 class RoundedAppBar extends StatelessWidget {
   const RoundedAppBar({super.key, required this.title});
@@ -17,13 +16,7 @@ class RoundedAppBar extends StatelessWidget {
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(300.r),
           ),
-          gradient: LinearGradient(
-            colors: Theme.of(context).brightness == Brightness.light
-                ? AppColors.purpleGradient
-                : AppColors.purpleGradientDark,
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
-          ),
+          gradient: getPurpleGradient(context),
         ),
         child: Padding(
           padding: EdgeInsets.only(bottom: 44.h, left: 24.w),
