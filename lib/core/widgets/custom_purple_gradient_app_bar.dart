@@ -29,7 +29,7 @@ class CustomPurpleGradientAppBar extends StatelessWidget {
             children: [
               if (leadingWidget != null) leadingWidget!,
               Spacer(),
-              if (centerWidget != null)
+              if (centerWidget == null)
                 SvgPicture.asset(
                   width: 116.w.clamp(110, 130),
                   Assets.imagesSvgsNovaStore,
