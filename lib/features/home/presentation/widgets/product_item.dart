@@ -7,6 +7,7 @@ import 'package:nova_store_app/core/utils/constants.dart';
 import 'package:nova_store_app/core/widgets/custom_cached_network_image.dart';
 import 'package:nova_store_app/core/widgets/spacing/height_space.dart';
 import 'package:nova_store_app/core/widgets/spacing/width_space.dart';
+import 'package:nova_store_app/core/widgets/star_rating.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/favourite_icon_button.dart';
 
 class ProductItem extends StatelessWidget {
@@ -63,7 +64,9 @@ class ProductItem extends StatelessWidget {
             ],
           ),
         ),
-        HeightSpace(height: 25),
+        HeightSpace(height: 8),
+        StarRating(rating: 3.5),
+        HeightSpace(height: 18),
         Text(
           maxLines: 2,
           overflow: TextOverflow.ellipsis,

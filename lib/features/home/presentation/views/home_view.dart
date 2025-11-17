@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,7 +8,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xffF4F3F4),
+        backgroundColor: context.secondScaffoldBackgroundColor,
         body: SafeArea(child: const HomeViewBody()));
   }
 }

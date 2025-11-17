@@ -31,7 +31,7 @@ class HomeViewBody extends StatelessWidget {
           child: SliverGrid.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 3 / 5,
+              childAspectRatio: 3.3 / 6,
               crossAxisSpacing: 12.w,
               mainAxisSpacing: 24.h,
             ),

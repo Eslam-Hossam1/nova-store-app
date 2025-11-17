@@ -17,5 +17,7 @@ extension ThemeColorsExtension on BuildContext {
   Color get dialogBackgroundColor => theme.dialogBackgroundColor;
   Color get primaryColor => colorScheme.primary;
   Color get secondaryColor => colorScheme.secondary;
-  Color get scaffoldBackgroundColor => theme.scaffoldBackgroundColor; 
+  Color get scaffoldBackgroundColor => theme.scaffoldBackgroundColor;
+  Color get secondScaffoldBackgroundColor =>
+      customColorsExtension.secondScaffoldBackgroundColor;
 }

@@ -6,14 +6,6 @@ class Assets {
   /// assets/images/jpgs/image_placeholder.jpg
   static const String imagesJpgsImagePlaceholder = "assets/images/jpgs/image_placeholder.jpg";
 
-  /// Assets for imagesPngsHeartGold
-  /// assets/images/pngs/heart_gold.png
-  static const String imagesPngsHeartGold = "assets/images/pngs/heart_gold.png";
-
-  /// Assets for imagesPngsHeartPurple
-  /// assets/images/pngs/heart_purple.png
-  static const String imagesPngsHeartPurple = "assets/images/pngs/heart_purple.png";
-
   /// Assets for imagesPngsOnboardingGirl
   /// assets/images/pngs/onboarding_girl.png
   static const String imagesPngsOnboardingGirl = "assets/images/pngs/onboarding_girl.png";
@@ -33,14 +25,6 @@ class Assets {
   /// Assets for imagesSvgsEmailIcon
   /// assets/images/svgs/email_icon.svg
   static const String imagesSvgsEmailIcon = "assets/images/svgs/email_icon.svg";
-
-  /// Assets for imagesSvgsHeartGold
-  /// assets/images/svgs/heart_gold.svg
-  static const String imagesSvgsHeartGold = "assets/images/svgs/heart_gold.svg";
-
-  /// Assets for imagesSvgsHeartPurple
-  /// assets/images/svgs/heart_purple.svg
-  static const String imagesSvgsHeartPurple = "assets/images/svgs/heart_purple.svg";
 
   /// Assets for imagesSvgsMenu
   /// assets/images/svgs/menu.svg

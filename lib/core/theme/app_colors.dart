@@ -28,6 +28,7 @@ abstract class AppColors {
   static const Color lightPrimary = darkPurple;
   static const Color lightSecondary = yellow;
   static const Color lightScaffoldBackground = bg;
+  static const Color lightSecondScaffoldBackground = Color(0xfff4f3f4);
   static const Color lightDialogBackground = dialogBackground;
   static const Color lightOnSurfaceVariant = gray;
   static const Color lightOutline = grayLight;
@@ -42,6 +43,7 @@ abstract class AppColors {
   static const Color darkPrimary = lightPurple;
   static const Color darkSecondary = yellow;
   static const Color darkScaffoldBackground = Color(0xff1a1a1a);
+  static const Color darkSecondScaffoldBackground = Color(0xff000000);
   static const Color darkDialogBackground = Color(0xff2a2a2a);
   static const Color darkSurface = Color(0xff2a2a2a);
   static const Color darkOnSurfaceVariant = grayLight;
