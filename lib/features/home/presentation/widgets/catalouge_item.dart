@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/extensions/clamping.dart';
@@ -6,10 +5,17 @@ import 'package:nova_store_app/core/theme/app_text_styles.dart';
 import 'package:nova_store_app/core/utils/constants.dart';
 import 'package:nova_store_app/core/widgets/custom_cached_network_image.dart';
 
-class CatalogueItem extends StatelessWidget {
+class CatalogueItem extends StatefulWidget {
   const CatalogueItem({
     super.key,
   });
+
+  @override
+  State<CatalogueItem> createState() => _CatalogueItemState();
+}
+
+class _CatalogueItemState extends State<CatalogueItem> {
+  bool _imageLoaded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +29,11 @@ class CatalogueItem extends StatelessWidget {
             width: 88.w.clampLessHalfAndMoreHalf(88),
             child: CustomCachedNetworkImage(
               url: Constants.categoryImageUrlTest,
+              onLoadingComplete: () {
+                setState(() {
+                  _imageLoaded = true;
+                });
+              },
             ),
           ),
           Container(
@@ -43,17 +54,18 @@ class CatalogueItem extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            right: 12,
-            left: 12,
-            child: Text(
-              textAlign: TextAlign.center,
-              "Women's fashion",
-              style: AppTextStyles.semiBold14(context).copyWith(
-                color: Colors.white,
+          if (_imageLoaded)
+            Positioned(
+              right: 12,
+              left: 12,
+              child: Text(
+                textAlign: TextAlign.center,
+                "Women's fashion",
+                style: AppTextStyles.semiBold14(context).copyWith(
+                  color: Colors.white,
+                ),
               ),
-            ),
-          )
+            )
         ],
       ),
     );
