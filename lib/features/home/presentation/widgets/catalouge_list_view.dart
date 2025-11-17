@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nova_store_app/core/extensions/clamping.dart';
+import 'package:nova_store_app/core/routing/routes_paths.dart';
 import 'package:nova_store_app/core/utils/constants.dart';
 import 'package:nova_store_app/core/widgets/spacing/width_space.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/catalouge_item.dart';
@@ -21,7 +23,12 @@ class CatalogueListView extends StatelessWidget {
             horizontal: Constants.appPadding.w,
           ),
           itemBuilder: (context, index) {
-            return CatalogueItem();
+            return GestureDetector(
+              onTap: () {
+                context.go(RoutePaths.category);
+              },
+              child: CatalogueItem(),
+            );
           },
           separatorBuilder: (context, index) {
             return WidthSpace(width: 20);
