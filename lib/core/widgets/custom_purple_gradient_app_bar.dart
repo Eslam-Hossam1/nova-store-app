@@ -10,9 +10,11 @@ class CustomPurpleGradientAppBar extends StatelessWidget {
     super.key,
     this.leadingWidget,
     this.trailingWidget,
+    this.centerWidget,
   });
   final Widget? leadingWidget;
   final Widget? trailingWidget;
+  final Widget? centerWidget;
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
@@ -27,10 +29,11 @@ class CustomPurpleGradientAppBar extends StatelessWidget {
             children: [
               if (leadingWidget != null) leadingWidget!,
               Spacer(),
-              SvgPicture.asset(
-                width: 116.w.clamp(110, 130),
-                Assets.imagesSvgsNovaStore,
-              ),
+              if (centerWidget != null)
+                SvgPicture.asset(
+                  width: 116.w.clamp(110, 130),
+                  Assets.imagesSvgsNovaStore,
+                ),
               Spacer(),
               if (trailingWidget != null) trailingWidget!,
             ],
