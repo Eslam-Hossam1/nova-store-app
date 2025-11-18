@@ -25,7 +25,7 @@ class CatalogueListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                context.go(RoutePaths.category);
+                context.push(RoutePaths.category);
               },
               child: CatalogueItem(),
             );

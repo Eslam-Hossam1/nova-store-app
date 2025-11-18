@@ -34,6 +34,7 @@ class CustomPurpleGradientAppBar extends StatelessWidget {
                   width: 116.w.clamp(110, 130),
                   Assets.imagesSvgsNovaStore,
                 ),
+              if (centerWidget != null) centerWidget!,
               Spacer(),
               if (trailingWidget != null) trailingWidget!,
             ],
