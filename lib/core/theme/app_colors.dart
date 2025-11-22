@@ -22,7 +22,7 @@ abstract class AppColors {
   static const Color green = Color(0xff46ab62);
   static const Color bg = Color(0xffffffff);
   static const Color purple = Color(0xff553E67);
-  static const Color lightPurple = Color(0xff553E67);
+  static const Color lightPurple = Color(0xffD83DFC);
 
   // Light Theme Colors
   static const Color lightPrimary = darkPurple;

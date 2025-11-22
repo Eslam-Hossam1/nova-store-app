@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/widgets/padding/sliver_app_padding.dart';
-import 'package:nova_store_app/features/home/presentation/widgets/product_item.dart';
+import 'package:nova_store_app/features/home/presentation/widgets/product_item/product_item.dart';
 
 class ProductsGrid extends StatelessWidget {
   const ProductsGrid({
