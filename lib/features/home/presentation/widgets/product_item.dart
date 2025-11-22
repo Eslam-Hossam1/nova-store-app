@@ -66,7 +66,7 @@ class ProductItem extends StatelessWidget {
         ),
         HeightSpace(height: 8),
         StarRating(rating: 3.5),
-        HeightSpace(height: 18),
+        HeightSpace(height: 8),
         Text(
           maxLines: 2,
           overflow: TextOverflow.ellipsis,

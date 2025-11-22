@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:nova_store_app/core/utils/constants.dart';
 import 'package:nova_store_app/core/widgets/custom_cached_network_image.dart';
-import 'package:nova_store_app/features/product-details/presentation/widgets/product_images_page_indicator.dart';
+import 'package:nova_store_app/features/product-details/presentation/widgets/product_images_page_view/product_images_page_indicator.dart';
 
 class ProductImagesPageView extends StatefulWidget {
   const ProductImagesPageView({super.key});

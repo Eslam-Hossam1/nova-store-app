@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:nova_store_app/features/product-details/presentation/widgets/product_images_dot_indicator.dart';
+import 'package:nova_store_app/features/product-details/presentation/widgets/product_images_page_view/product_images_dot_indicator.dart';
 
 class ProductImagesPageIndicator extends StatelessWidget {
   const ProductImagesPageIndicator({
