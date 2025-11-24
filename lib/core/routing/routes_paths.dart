@@ -6,4 +6,5 @@ abstract class RoutePaths {
   static const signUp = "/sign-up";
   static const otp = "/otp";
   static const category = "/category";
+  static const productDetails = "/product-details";
 }

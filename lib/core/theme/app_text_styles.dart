@@ -15,11 +15,23 @@ abstract class AppTextStyles {
       fontSize: _getResponsiveText(context, baseFontSize: 11),
     );
   }
+  static TextStyle bold12(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 12),
+    );
+  }
 
   static TextStyle bold19(context) {
     return TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: _getResponsiveText(context, baseFontSize: 19),
+    );
+  }
+  static TextStyle bold22(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 22),
     );
   }
     static TextStyle textStyleSemiBold34(context) {
@@ -47,6 +59,12 @@ abstract class AppTextStyles {
     return TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: _getResponsiveText(context, baseFontSize: 17),
+    );
+  }
+  static TextStyle regular19(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: _getResponsiveText(context, baseFontSize: 19),
     );
   }
 
