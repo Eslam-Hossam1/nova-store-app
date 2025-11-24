@@ -12,7 +12,7 @@ class AppRouter {
     onBoardingCacheHelper: getIt<OnBoardingCacheHelper>(),
   );
   static final router = GoRouter(
-    initialLocation: RoutePaths.productDetails,
+    initialLocation: RoutePaths.profile,
     navigatorKey: rootNavigatorKey,
     redirect: routerRedirect.redirect,
     debugLogDiagnostics: true,
