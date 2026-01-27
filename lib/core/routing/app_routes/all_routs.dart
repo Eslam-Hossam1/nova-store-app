@@ -5,6 +5,7 @@ import 'package:nova_store_app/core/routing/app_routes/home_route.dart';
 import 'package:nova_store_app/core/routing/app_routes/onboarding_route.dart';
 import 'package:nova_store_app/core/routing/app_routes/otp_route.dart';
 import 'package:nova_store_app/core/routing/app_routes/product_details.dart';
+import 'package:nova_store_app/core/routing/app_routes/profile_routes.dart';
 
 class AppRoutes {
   static List<RouteBase> routes = [
@@ -14,5 +15,6 @@ class AppRoutes {
     HomeRoute.home,
     CategoryRoute.category,
     ProductDetailsRoute.productDetails,
+    ...ProfileRoutes.routes,
   ];
 }

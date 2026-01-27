@@ -7,4 +7,5 @@ abstract class RoutePaths {
   static const otp = "/otp";
   static const category = "/category";
   static const productDetails = "/product-details";
+  static const profile = "/profile";
 }
