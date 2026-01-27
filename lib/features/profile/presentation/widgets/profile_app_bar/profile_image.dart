@@ -12,18 +12,20 @@ class ProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 72.w.clampLessQuarterAndMoreQuarter(72),
-      height: 72.w.clampLessQuarterAndMoreQuarter(72),
+      width: 75.w.clampLessQuarterAndMoreQuarter(72),
+      height: 75.w.clampLessQuarterAndMoreQuarter(72),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Color(0xffF4F3F4),
       ),
-      child: SizedBox(
-        width: 70.w.clampLessQuarterAndMoreQuarter(70),
-        height: 70.w.clampLessQuarterAndMoreQuarter(70),
-        child: ClipOval(
-          child: CustomCachedNetworkImage(
-            url: Constants.categoryImageUrlTest,
+      child: Center(
+        child: SizedBox(
+          width: 70.w.clampLessQuarterAndMoreQuarter(70),
+          height: 70.w.clampLessQuarterAndMoreQuarter(70),
+          child: ClipOval(
+            child: CustomCachedNetworkImage(
+              url: Constants.categoryImageUrlTest,
+            ),
           ),
         ),
       ),

@@ -81,6 +81,12 @@ abstract class AppTextStyles {
       fontSize: _getResponsiveText(context, baseFontSize: 14),
     );
   }
+  static TextStyle semiBold17(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w600,
+      fontSize: _getResponsiveText(context, baseFontSize: 17),
+    );
+  }
 
   static TextStyle regular11(context) {
     return TextStyle(
