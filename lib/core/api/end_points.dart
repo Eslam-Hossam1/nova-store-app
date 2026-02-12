@@ -1,6 +1,7 @@
 abstract class EndPoints {
-  static const String baseUrl = "https://nova-store-nine.vercel.app";
-  ///common endpoint for auth (login & signup) its used to send verification code 
-  static const String auth = "/api/v1/users/login";
-  static const String verifyAuthOtp = "/api/v1/users/verify";
+  static const String baseUrl = "https://nova-store-chi.vercel.app/api/v1";
+  ///common endpoint for auth (login & signup) itps used to send verification code 
+  static const String auth = "/auth/login";
+  static const String verifyAuthOtp = "/auth/verify";
+  static const String refreshToken = "/auth/refresh-token";
 }

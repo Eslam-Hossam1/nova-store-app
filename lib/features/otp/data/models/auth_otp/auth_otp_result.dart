@@ -12,8 +12,8 @@ class AuthOtpResult implements OtpResult {
   });
   factory AuthOtpResult.fromJson(Map<String, dynamic> json) {
     return AuthOtpResult(
-      accessToken: json[ApiKeys.accessToken],
-      refreshToken: json[ApiKeys.refreshToken],
+      accessToken: json['tokens'][ApiKeys.accessToken],
+      refreshToken: json['tokens'][ApiKeys.refreshToken],
     );
   }
 }
