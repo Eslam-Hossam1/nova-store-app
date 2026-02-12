@@ -42,10 +42,14 @@ class DioApiFailure extends ApiFailure {
     }
   }
   factory DioApiFailure.frombadResponse(int status, dynamic responseBody) {
-    if (responseBody != null) {
-      ApiErrorModel errorModel = ApiErrorModel.fromJson(responseBody);
-      return DioApiFailure(errorModel.message, errorModel.error);
-    } else {
+    try {
+      if (responseBody != null) {
+        ApiErrorModel errorModel = ApiErrorModel.fromJson(responseBody);
+        return DioApiFailure(errorModel.message, errorModel.error);
+      } else {
+        return DioApiFailure.fromStatusCode(status);
+      }
+    } catch (e) {
       return DioApiFailure.fromStatusCode(status);
     }
   }

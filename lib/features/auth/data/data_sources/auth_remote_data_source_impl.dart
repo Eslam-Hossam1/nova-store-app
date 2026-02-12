@@ -15,6 +15,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       EndPoints.auth,
       data: {
         ApiKeys.email: email,
+        ApiKeys.isAdmin: false,
       },
     );
   }

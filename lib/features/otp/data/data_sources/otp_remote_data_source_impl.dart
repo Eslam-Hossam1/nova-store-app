@@ -15,6 +15,7 @@ class OtpRemoteDataSourceImpl implements OtpRemoteDataSource {
       otpReason.sendOtpEndpoint,
       data: {
         ApiKeys.email: otpReason.email,
+        ApiKeys.isAdmin: false,
       },
     );
   }

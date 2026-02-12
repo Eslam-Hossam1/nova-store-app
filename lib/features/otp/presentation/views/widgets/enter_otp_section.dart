@@ -21,7 +21,7 @@ class EnterOtpSection extends StatelessWidget {
             'Please enter verification code sent to',
             style: AppTextStyles.regular17(context).copyWith(
               color: context.mainTextColor,
-            ),  
+            ),
           ),
           RichText(
             text: TextSpan(children: [
@@ -34,7 +34,7 @@ class EnterOtpSection extends StatelessWidget {
               TextSpan(
                 text: otpCubit.otpReason.email,
                 style: AppTextStyles.regular14(context).copyWith(
-                  color: context.outlineColor,
+                  color: context.mainTextColor,
                 ),
               )
             ]),
