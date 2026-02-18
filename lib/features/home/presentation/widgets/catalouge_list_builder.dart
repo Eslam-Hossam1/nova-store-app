@@ -5,6 +5,7 @@ import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/features/home/presentation/manager/category_cubit/category_cubit.dart';
 import 'package:nova_store_app/features/home/presentation/manager/category_cubit/category_state.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/catalouge_list_view.dart';
+import 'package:nova_store_app/features/home/presentation/widgets/skeletonizer_catalogue_list_view.dart';
 
 class CatalougeListBuilder extends StatelessWidget {
   const CatalougeListBuilder({super.key});
@@ -15,7 +16,6 @@ class CatalougeListBuilder extends StatelessWidget {
       if (state is CategorySuccess) {
         return CatalogueListView(
           categories: state.categories,
-          isLoading: false,
         );
       } else if (state is CategoryFailure) {
         return SliverToBoxAdapter(
@@ -29,10 +29,7 @@ class CatalougeListBuilder extends StatelessWidget {
           ),
         );
       } else {
-        return CatalogueListView(
-          categories: [],
-          isLoading: true,
-        );
+        return const SkeletonizerCatalogueListView();
       }
     });
   }
