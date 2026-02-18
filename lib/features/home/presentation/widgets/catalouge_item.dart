@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nova_store_app/core/extensions/clamping.dart';
+import 'package:nova_store_app/core/entities/category_entity.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
-import 'package:nova_store_app/core/utils/constants.dart';
 import 'package:nova_store_app/core/widgets/custom_cached_network_image.dart';
 
 class CatalogueItem extends StatefulWidget {
+  final CategoryEntity category;
   const CatalogueItem({
     super.key,
+    required this.category,
   });
 
   @override
@@ -25,10 +26,10 @@ class _CatalogueItemState extends State<CatalogueItem> {
         alignment: Alignment.center,
         children: [
           SizedBox(
-            height: 88.w.clampLessHalfAndMoreHalf(88),
-            width: 88.w.clampLessHalfAndMoreHalf(88),
+            height: 100.w,
+            width: 100.w,
             child: CustomCachedNetworkImage(
-              url: Constants.categoryImageUrlTest,
+              url: widget.category.image,
               onLoadingComplete: () {
                 if (mounted) {
                   setState(() {
@@ -39,19 +40,15 @@ class _CatalogueItemState extends State<CatalogueItem> {
             ),
           ),
           Container(
-            height: 88.w.clampLessHalfAndMoreHalf(88),
-            width: 88.w.clampLessHalfAndMoreHalf(88),
+            height: 100.w,
+            width: 100.w,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
-                  Color(0xff34283E).withAlpha(
-                    (.3 * 255).toInt(),
-                  ),
-                  Color(0xff34283E).withAlpha(
-                    (.4 * 255).toInt(),
-                  ),
+                  const Color(0xff34283E).withValues(alpha: 0.3),
+                  const Color(0xff34283E).withValues(alpha: 0.4),
                 ],
               ),
             ),
@@ -62,7 +59,7 @@ class _CatalogueItemState extends State<CatalogueItem> {
               left: 12,
               child: Text(
                 textAlign: TextAlign.center,
-                "Women's fashion",
+                widget.category.name,
                 style: AppTextStyles.semiBold14(context).copyWith(
                   color: Colors.white,
                 ),
