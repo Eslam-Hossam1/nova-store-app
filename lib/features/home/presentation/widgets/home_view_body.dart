@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nova_store_app/core/widgets/spacing/sliver_height_space.dart';
-import 'package:nova_store_app/features/home/presentation/widgets/catalouge_list_builder.dart';
+import 'package:nova_store_app/features/home/presentation/widgets/category_list_builder.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/custom_purple_title.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/custom_purple_titled_with_see_all.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/home_app_bar.dart';
@@ -16,10 +16,10 @@ class HomeViewBody extends StatelessWidget {
         HomeAppBar(),
         SliverHeightSpace(height: 20),
         CustomPurpleTitleWithSeeAll(
-          title: 'Catalogue',
+          title: 'Categories',
         ),
         SliverHeightSpace(height: 16),
-        CatalougeListBuilder(),
+        CategoryListBuilder(),
         SliverHeightSpace(height: 32),
         CustomPurpleTitle(
           title: 'Featured',

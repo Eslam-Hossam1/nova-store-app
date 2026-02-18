@@ -4,18 +4,18 @@ import 'package:nova_store_app/core/entities/category_entity.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
 import 'package:nova_store_app/core/widgets/custom_cached_network_image.dart';
 
-class CatalogueItem extends StatefulWidget {
+class CategoryItem extends StatefulWidget {
   final CategoryEntity category;
-  const CatalogueItem({
+  const CategoryItem({
     super.key,
     required this.category,
   });
 
   @override
-  State<CatalogueItem> createState() => _CatalogueItemState();
+  State<CategoryItem> createState() => _CategoryItemState();
 }
 
-class _CatalogueItemState extends State<CatalogueItem> {
+class _CategoryItemState extends State<CategoryItem> {
   bool _imageLoaded = false;
 
   @override

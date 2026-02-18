@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/entities/category_entity.dart';
 import 'package:nova_store_app/core/utils/constants.dart';
 import 'package:nova_store_app/core/widgets/spacing/width_space.dart';
-import 'package:nova_store_app/features/home/presentation/widgets/catalouge_item.dart';
+import 'package:nova_store_app/features/home/presentation/widgets/category_item.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class SkeletonizerCatalogueListView extends StatelessWidget {
-  const SkeletonizerCatalogueListView({super.key});
+class SkeletonizerCategoryListView extends StatelessWidget {
+  const SkeletonizerCategoryListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SkeletonizerCatalogueListView extends StatelessWidget {
               horizontal: Constants.appPadding.w,
             ),
             itemBuilder: (context, index) {
-              return const CatalogueItem(
+              return const CategoryItem(
                 category: CategoryEntity(
                   id: '1',
                   name: 'Category Name',
