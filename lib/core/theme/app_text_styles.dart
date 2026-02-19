@@ -9,12 +9,14 @@ abstract class AppTextStyles {
       fontSize: _getResponsiveText(context, baseFontSize: 25),
     );
   }
+
   static TextStyle bold11(context) {
     return TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: _getResponsiveText(context, baseFontSize: 11),
     );
   }
+
   static TextStyle bold12(context) {
     return TextStyle(
       fontWeight: FontWeight.w700,
@@ -28,13 +30,15 @@ abstract class AppTextStyles {
       fontSize: _getResponsiveText(context, baseFontSize: 19),
     );
   }
+
   static TextStyle bold22(context) {
     return TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: _getResponsiveText(context, baseFontSize: 22),
     );
   }
-    static TextStyle textStyleSemiBold34(context) {
+
+  static TextStyle textStyleSemiBold34(context) {
     return TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: _getResponsiveText(context, baseFontSize: 34),
@@ -61,6 +65,7 @@ abstract class AppTextStyles {
       fontSize: _getResponsiveText(context, baseFontSize: 17),
     );
   }
+
   static TextStyle regular19(context) {
     return TextStyle(
       fontWeight: FontWeight.w400,
@@ -81,6 +86,7 @@ abstract class AppTextStyles {
       fontSize: _getResponsiveText(context, baseFontSize: 14),
     );
   }
+
   static TextStyle semiBold17(context) {
     return TextStyle(
       fontWeight: FontWeight.w600,
@@ -104,18 +110,16 @@ abstract class AppTextStyles {
 
   static TextStyle textStyleAwesomeDialogTitle(BuildContext context) {
     return TextStyle(
-      fontWeight: FontWeight.w600,
-      fontSize: _getResponsiveText(context, baseFontSize: 20),
-      color: context.primaryColor
-    );
+        fontWeight: FontWeight.w600,
+        fontSize: _getResponsiveText(context, baseFontSize: 20),
+        color: context.primaryColor);
   }
 
   static TextStyle textStyleAwesomeDialogDesc(BuildContext context) {
     return TextStyle(
-      fontWeight: FontWeight.w400,
-      fontSize: _getResponsiveText(context, baseFontSize: 14),
-      color: context.primaryColor
-    );
+        fontWeight: FontWeight.w400,
+        fontSize: _getResponsiveText(context, baseFontSize: 14),
+        color: context.primaryColor);
   }
 
   static double _getResponsiveText(context, {required double baseFontSize}) {

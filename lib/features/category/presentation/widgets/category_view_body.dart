@@ -19,7 +19,7 @@ class CategoryViewBody extends StatelessWidget {
           title: '163 items',
         ),
         const SliverHeightSpace(height: 16),
-        const ProductsGrid(),
+       // const ProductsGrid(),
       ],
     );
   }

@@ -17,7 +17,7 @@ extension Clamping on double {
       ).toDouble();
 
   double clampLessFifthAndMoreFifth(num baseNumber) => clamp(
-          baseNumber * 0.8,
+        baseNumber * 0.8,
         baseNumber * 1.2,
       ).toDouble();
 

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:nova_store_app/core/extensions/clamping.dart';
 import 'package:nova_store_app/features/onboarding/presentation/resources/onboarding_colors.dart';

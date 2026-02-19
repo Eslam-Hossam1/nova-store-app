@@ -25,7 +25,7 @@ class _SignUpViewState extends State<SignUpView> with NoInternetMixin {
             errorMessage: state.errMsg,
           );
         } else if (state is SignUpSuccess) {
-            RoutingHelper.pushOtp(
+          RoutingHelper.pushOtp(
             context,
             otpReason: AuthOtpReason(
               email: context.read<SignUpCubit>().email,

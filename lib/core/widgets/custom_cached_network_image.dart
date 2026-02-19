@@ -17,7 +17,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
   final Widget? placeHolder;
   final double? width;
   final double? height;
-  
+
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
@@ -34,19 +34,6 @@ class CustomCachedNetworkImage extends StatelessWidget {
         Assets.imagesJpgsImagePlaceholder,
         fit: BoxFit.cover,
       ),
-      imageBuilder: (context, imageProvider) {
-        // Call the callback when image is loaded
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          onLoadingComplete?.call();
-        });
-        return Image(
-          image: imageProvider,
-          fit: BoxFit.cover,
-          width: width,
-          height: height,
-        );
-      },
     );
   }
 }
-

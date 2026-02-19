@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
+import 'package:nova_store_app/features/home/domain/entities/product_entity.dart';
 
 class DiscountBadge extends StatelessWidget {
   const DiscountBadge({
     super.key,
+    required this.productEntity,
   });
-
+  final ProductEntity productEntity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +25,7 @@ class DiscountBadge extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          '-50%',
+          '-${productEntity.discount}%',
           style: AppTextStyles.bold11(context).copyWith(
             color: Colors.white,
           ),
