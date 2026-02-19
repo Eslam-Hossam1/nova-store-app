@@ -30,22 +30,26 @@ class AuthCredentialsManager {
   }
 
   Future<String?> getAccessToken() async {
-    return await secureStorageHelper.getString(key: SecureStorageKeys.accessToken);
+    return await secureStorageHelper.getString(
+        key: SecureStorageKeys.accessToken);
   }
 
   Future<String?> getRefreshToken() async {
-    return await secureStorageHelper.getString(key: SecureStorageKeys.refreshToken);
+    return await secureStorageHelper.getString(
+        key: SecureStorageKeys.refreshToken);
   }
 
   Future<void> storeAccessToken(String token) async {
     token = removeBearer(token);
-    await secureStorageHelper.setData(key: SecureStorageKeys.accessToken, value: token);
+    await secureStorageHelper.setData(
+        key: SecureStorageKeys.accessToken, value: token);
     _authCredentialsModel?.accessToken = token;
   }
 
   Future<void> storeRefreshToken(String token) async {
     token = removeBearer(token);
-    await secureStorageHelper.setData(key: SecureStorageKeys.refreshToken, value: token);
+    await secureStorageHelper.setData(
+        key: SecureStorageKeys.refreshToken, value: token);
     _authCredentialsModel?.refreshToken = token;
   }
 

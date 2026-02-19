@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/entities/category_entity.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
 import 'package:nova_store_app/core/widgets/custom_cached_network_image.dart';
+import 'package:nova_store_app/core/widgets/custom_cateogry_cached_network_Image.dart';
 
 class CategoryItem extends StatefulWidget {
   final CategoryEntity category;
@@ -28,7 +29,7 @@ class _CategoryItemState extends State<CategoryItem> {
           SizedBox(
             height: 100.w,
             width: 100.w,
-            child: CustomCachedNetworkImage(
+            child: CustomCategoryCachedNetworkImage(
               url: widget.category.image,
               onLoadingComplete: () {
                 if (mounted) {

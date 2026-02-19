@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
 import 'package:nova_store_app/core/widgets/custom_purple_gradient_app_bar.dart';
+
 class CategoryAppBar extends StatelessWidget {
   const CategoryAppBar({
     super.key,

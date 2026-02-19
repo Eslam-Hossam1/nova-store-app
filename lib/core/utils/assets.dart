@@ -1,22 +1,26 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
   /// Assets for imagesJpgsImagePlaceholder
   /// assets/images/jpgs/image_placeholder.jpg
-  static const String imagesJpgsImagePlaceholder = "assets/images/jpgs/image_placeholder.jpg";
+  static const String imagesJpgsImagePlaceholder =
+      "assets/images/jpgs/image_placeholder.jpg";
 
   /// Assets for imagesPngsOnboardingGirl
   /// assets/images/pngs/onboarding_girl.png
-  static const String imagesPngsOnboardingGirl = "assets/images/pngs/onboarding_girl.png";
+  static const String imagesPngsOnboardingGirl =
+      "assets/images/pngs/onboarding_girl.png";
 
   /// Assets for imagesPngsSplashAndroid12Logo
   /// assets/images/pngs/splash_android_12_logo.png
-  static const String imagesPngsSplashAndroid12Logo = "assets/images/pngs/splash_android_12_logo.png";
+  static const String imagesPngsSplashAndroid12Logo =
+      "assets/images/pngs/splash_android_12_logo.png";
 
   /// Assets for imagesPngsSplashLogo
   /// assets/images/pngs/splash_logo.png
-  static const String imagesPngsSplashLogo = "assets/images/pngs/splash_logo.png";
+  static const String imagesPngsSplashLogo =
+      "assets/images/pngs/splash_logo.png";
 
   /// Assets for imagesSvgsBell
   /// assets/images/svgs/bell.svg
@@ -48,11 +52,13 @@ class Assets {
 
   /// Assets for imagesSvgsOrdersIcon
   /// assets/images/svgs/orders_icon.svg
-  static const String imagesSvgsOrdersIcon = "assets/images/svgs/orders_icon.svg";
+  static const String imagesSvgsOrdersIcon =
+      "assets/images/svgs/orders_icon.svg";
 
   /// Assets for imagesSvgsPaymentMethodsIcon
   /// assets/images/svgs/payment_methods_icon.svg
-  static const String imagesSvgsPaymentMethodsIcon = "assets/images/svgs/payment_methods_icon.svg";
+  static const String imagesSvgsPaymentMethodsIcon =
+      "assets/images/svgs/payment_methods_icon.svg";
 
   /// Assets for imagesSvgsPenEdit
   /// assets/images/svgs/pen_edit.svg
@@ -64,6 +70,6 @@ class Assets {
 
   /// Assets for imagesSvgsShoppingCart
   /// assets/images/svgs/shopping_cart.svg
-  static const String imagesSvgsShoppingCart = "assets/images/svgs/shopping_cart.svg";
+  static const String imagesSvgsShoppingCart =
+      "assets/images/svgs/shopping_cart.svg";
 }
-

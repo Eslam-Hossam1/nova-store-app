@@ -7,6 +7,7 @@ class ProductEntity {
   final num finalPrice;
   final int stock;
   final bool isFavorite;
+  final int rateProduct;
 
   const ProductEntity({
     required this.id,
@@ -17,5 +18,6 @@ class ProductEntity {
     required this.finalPrice,
     required this.stock,
     required this.isFavorite,
+    required this.rateProduct,
   });
 }

@@ -6,4 +6,5 @@ abstract class EndPoints {
   static const String verifyAuthOtp = "/auth/verify";
   static const String refreshToken = "/auth/refresh-token";
   static const String categories = "/categories";
+  static const String products = "/products";
 }

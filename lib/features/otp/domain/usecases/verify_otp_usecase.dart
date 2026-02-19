@@ -12,7 +12,7 @@ class VerifyOtpUsecase
   VerifyOtpUsecase({required OtpRepo otpRepo}) : _otpRepo = otpRepo;
   @override
   Future<Either<ApiFailure, OtpResult>> call(VerifyOtpParams params) async {
-   return await _otpRepo.verifyOtp(
+    return await _otpRepo.verifyOtp(
       otpReason: params.otpReason,
       pinCode: params.pinCode,
     );

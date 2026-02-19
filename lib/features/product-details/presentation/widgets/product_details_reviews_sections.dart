@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
 import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
@@ -19,7 +18,7 @@ class ProductDetailsReviewsSection extends StatelessWidget {
       applyBottomPadding: false,
       child: Column(
         children: [
-         const ProductDetailsSectionsTitleWithSeeAll(title: 'Reviews'),
+          const ProductDetailsSectionsTitleWithSeeAll(title: 'Reviews'),
           const HeightSpace(height: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

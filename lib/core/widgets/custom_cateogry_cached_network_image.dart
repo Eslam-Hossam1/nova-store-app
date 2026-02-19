@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/core/utils/assets.dart';
 
-class CustomCachedNetworkImage extends StatelessWidget {
-  const CustomCachedNetworkImage({
+class CustomCategoryCachedNetworkImage extends StatelessWidget {
+  const CustomCategoryCachedNetworkImage({
     super.key,
     required this.url,
     this.placeHolder,
@@ -34,6 +34,18 @@ class CustomCachedNetworkImage extends StatelessWidget {
         Assets.imagesJpgsImagePlaceholder,
         fit: BoxFit.cover,
       ),
+      imageBuilder: (context, imageProvider) {
+        // Call the callback when image is loaded
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          onLoadingComplete?.call();
+        });
+        return Image(
+          image: imageProvider,
+          fit: BoxFit.cover,
+          width: width,
+          height: height,
+        );
+      },
     );
   }
 }

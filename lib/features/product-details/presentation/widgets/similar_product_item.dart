@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nova_store_app/core/extensions/clamping.dart';
@@ -33,11 +32,11 @@ class SimilarProductItem extends StatelessWidget {
                   url: Constants.categoryImageUrlTest,
                 ),
               ),
-              Positioned(
-                top: 8.h,
-                left: 0,
-                child: DiscountBadge(),
-              ),
+              // Positioned(
+              //   top: 8.h,
+              //   left: 0,
+              //   child: DiscountBadge(),
+              // ),
               Positioned(
                 right: 8.h,
                 bottom: -16.w.clampLessEighthAndMoreEighth(16),
@@ -58,7 +57,7 @@ class SimilarProductItem extends StatelessWidget {
           ),
         ),
         HeightSpace(height: 8),
-        ProductPriceSection()
+        //ProductPriceSection()
       ],
     );
   }

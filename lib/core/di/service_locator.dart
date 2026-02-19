@@ -11,9 +11,12 @@ import 'package:nova_store_app/core/cache/shared_pref/shared_prefernce_helper.da
 import 'package:nova_store_app/core/helpers/on_boarding_cache_helper.dart';
 import 'package:nova_store_app/features/auth/data/data_sources/auth_remote_data_source_impl.dart';
 import 'package:nova_store_app/features/auth/data/repos/auth_repo_impl.dart';
-import 'package:nova_store_app/features/home/data/datasources/category_remote_data_source.dart';
+import 'package:nova_store_app/features/home/data/datasources/category/category_remote_data_source.dart';
+import 'package:nova_store_app/features/home/data/datasources/products/products_remote_data_source_impl.dart';
 import 'package:nova_store_app/features/home/data/repos/category_repo_impl.dart';
+import 'package:nova_store_app/features/home/data/repos/products_repo_impl.dart';
 import 'package:nova_store_app/features/home/domain/usecases/get_categories_usecase.dart';
+import 'package:nova_store_app/features/home/domain/usecases/get_products_usecase.dart';
 import 'package:nova_store_app/features/otp/data/data_sources/otp_remote_data_source_impl.dart';
 import 'package:nova_store_app/features/otp/data/repos/otp_repo_impl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -52,6 +55,15 @@ Future<void> setupServiceLocator() async {
     () => GetCategoriesUseCase(
       categoryRepo: CategoryRepoImpl(
         categoryRemoteDataSource: CategoryRemoteDataSourceImpl(
+          apiConsumer: getIt<DioConsumer>(),
+        ),
+      ),
+    ),
+  );
+  getIt.registerLazySingleton<GetProductsUseCase>(
+    () => GetProductsUseCase(
+      productsRepo: ProductsRepoImpl(
+        productsRemoteDataSource: ProductsRemoteDataSourceImpl(
           apiConsumer: getIt<DioConsumer>(),
         ),
       ),

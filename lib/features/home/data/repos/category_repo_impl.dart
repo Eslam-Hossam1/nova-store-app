@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:nova_store_app/core/entities/category_entity.dart';
 import 'package:nova_store_app/core/errors/api_failure.dart';
 import 'package:nova_store_app/core/errors/dio_api_failure.dart';
-import 'package:nova_store_app/features/home/data/datasources/category_remote_data_source.dart';
+import 'package:nova_store_app/features/home/data/datasources/category/category_remote_data_source.dart';
 import 'package:nova_store_app/features/home/domain/repos/category_repo.dart';
 
 class CategoryRepoImpl implements CategoryRepo {
