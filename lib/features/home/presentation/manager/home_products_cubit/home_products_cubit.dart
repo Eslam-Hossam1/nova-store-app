@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nova_store_app/features/home/domain/entities/product_entity.dart';
 import 'package:nova_store_app/features/home/domain/params/get_products_param.dart';
@@ -30,8 +28,6 @@ class HomeProductsCubit extends Cubit<HomeProductsState> {
   }
 
   Future<void> fetchMoreProducts() async {
-    log('fetch more products');
-    log('has more data: $hasMoreData');
     if (hasMoreData) {
       emit(HomeProductsLoadingMore());
       await fetchProducts();
