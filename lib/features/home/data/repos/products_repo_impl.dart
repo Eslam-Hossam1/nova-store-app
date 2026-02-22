@@ -19,8 +19,7 @@ class ProductsRepoImpl implements ProductsRepo {
   }) async {
     try {
       final products = await _productsRemoteDataSource.getProducts(
-        limit: params.limit,
-        page: params.page,
+        getProductsParam: params,
       );
       return Right(products.map((e) => e.toEntity()).toList());
     } on Exception catch (e) {
