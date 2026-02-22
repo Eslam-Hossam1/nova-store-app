@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
 import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
-import 'package:nova_store_app/features/home/presentation/manager/home_products_cubit/home_products_cubit.dart';
-import 'package:nova_store_app/features/home/presentation/manager/home_products_cubit/home_products_state.dart';
+import 'package:nova_store_app/features/category/presentation/manager/category_products/category_products_cubit.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/products_grid.dart';
 import 'package:nova_store_app/features/home/presentation/widgets/skeletonizer_products_grid.dart';
 
-class ProductsGridConsumer extends StatelessWidget {
-  const ProductsGridConsumer({super.key});
+class CategoryProductsGridConsumer extends StatelessWidget {
+  const CategoryProductsGridConsumer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeProductsCubit, HomeProductsState>(
+    return BlocConsumer<CategoryProductsCubit, CategoryProductsState>(
         listener: (context, state) {
-      if (state is HomeProductsLoadingMoreFailure) {
+      if (state is CategoryProductsLoadingMoreFailure) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(state.errorMessage),
@@ -22,11 +21,11 @@ class ProductsGridConsumer extends StatelessWidget {
         );
       }
     }, builder: (context, state) {
-      if (state is HomeProductsSuccess) {
+      if (state is CategoryProductsSuccess) {
         return ProductsGrid(
-          products: context.read<HomeProductsCubit>().products,
+          products: context.read<CategoryProductsCubit>().products,
         );
-      } else if (state is HomeProductsFirstFetchFailure) {
+      } else if (state is CategoryProductsFirstFetchFailure) {
         return SliverToBoxAdapter(
           child: Center(
             child: Text(

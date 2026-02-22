@@ -3,6 +3,7 @@ import 'package:nova_store_app/core/api/end_points.dart';
 import 'package:nova_store_app/features/home/data/datasources/products/products_remote_data_source.dart';
 import 'package:nova_store_app/features/home/data/models/products_response/product_model.dart';
 import 'package:nova_store_app/features/home/data/models/products_response/products_response.dart';
+import 'package:nova_store_app/features/home/domain/params/get_products_param.dart';
 
 class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
   final ApiConsumer _apiConsumer;
@@ -12,14 +13,16 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
 
   @override
   Future<List<ProductModel>> getProducts({
-    required int limit,
-    required int page,
+    required GetProductsParam getProductsParam,
   }) async {
     final response = await _apiConsumer.get(
       EndPoints.products,
       queryParameters: {
-        'limit': limit,
-        'page': page,
+        'limit': getProductsParam.limit,
+        'page': getProductsParam.page,
+        'category': getProductsParam.category?.id,
+        'bestRated': getProductsParam.bestRated,
+        'price': getProductsParam.price,
       },
     );
     final ProductsResponse productsResponse =

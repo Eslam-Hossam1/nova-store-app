@@ -11,6 +11,9 @@ import 'package:nova_store_app/core/cache/shared_pref/shared_prefernce_helper.da
 import 'package:nova_store_app/core/helpers/on_boarding_cache_helper.dart';
 import 'package:nova_store_app/features/auth/data/data_sources/auth_remote_data_source_impl.dart';
 import 'package:nova_store_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:nova_store_app/features/category/data/datasources/category_products_remote_data_source/category_products_remote_data_source_impl.dart';
+import 'package:nova_store_app/features/category/data/repos/category_products_repo_impl.dart';
+import 'package:nova_store_app/features/category/domain/usecases/get_category_products_usecase.dart';
 import 'package:nova_store_app/features/home/data/datasources/category/category_remote_data_source.dart';
 import 'package:nova_store_app/features/home/data/datasources/products/products_remote_data_source_impl.dart';
 import 'package:nova_store_app/features/home/data/repos/category_repo_impl.dart';
@@ -34,6 +37,7 @@ Future<void> setupServiceLocator() async {
       dio: Dio(),
     ),
   );
+
   getIt.registerSingleton<NetworkConnectionCheckerImpl>(
     NetworkConnectionCheckerImpl(
       connectivity: Connectivity(),
@@ -51,6 +55,15 @@ Future<void> setupServiceLocator() async {
           OtpRemoteDataSourceImpl(apiConsumer: getIt<DioConsumer>()),
     ),
   );
+  getIt.registerSingleton<GetProductsUseCase>(
+    GetProductsUseCase(
+      productsRepo: ProductsRepoImpl(
+        productsRemoteDataSource: ProductsRemoteDataSourceImpl(
+          apiConsumer: getIt<DioConsumer>(),
+        ),
+      ),
+    ),
+  );
   getIt.registerLazySingleton<GetCategoriesUseCase>(
     () => GetCategoriesUseCase(
       categoryRepo: CategoryRepoImpl(
@@ -60,10 +73,10 @@ Future<void> setupServiceLocator() async {
       ),
     ),
   );
-  getIt.registerLazySingleton<GetProductsUseCase>(
-    () => GetProductsUseCase(
-      productsRepo: ProductsRepoImpl(
-        productsRemoteDataSource: ProductsRemoteDataSourceImpl(
+  getIt.registerLazySingleton<GetCategoryProductsUseCase>(
+    () => GetCategoryProductsUseCase(
+      categoryProductsRepo: CategoryProductsRepoImpl(
+        remoteDataSource: CategoryProductsRemoteDataSourceImpl(
           apiConsumer: getIt<DioConsumer>(),
         ),
       ),
