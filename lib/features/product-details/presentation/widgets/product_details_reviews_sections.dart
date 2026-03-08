@@ -6,6 +6,7 @@ import 'package:nova_store_app/core/widgets/spacing/height_space.dart';
 import 'package:nova_store_app/core/widgets/star_rating.dart';
 import 'package:nova_store_app/features/product-details/domain/entities/product_comment_entity.dart';
 import 'package:nova_store_app/features/product-details/presentation/manager/manager/product_details_cubit/product_details_cubit.dart';
+import 'package:nova_store_app/features/product-details/presentation/widgets/add_comment_bottom_sheet.dart';
 import 'package:nova_store_app/features/product-details/presentation/widgets/product_details_sections_background_container.dart';
 import 'package:nova_store_app/features/product-details/presentation/widgets/product_details_sections_title_with_see_all.dart';
 
@@ -78,7 +79,7 @@ class _ReviewItem extends StatelessWidget {
         ),
         const HeightSpace(height: 8),
         GestureDetector(
-          onTap: () {},
+          onTap: () => AddCommentBottomSheet.show(context),
           child: Text(
             'Comment',
             style: AppTextStyles.regular12(context).copyWith(
