@@ -7,4 +7,5 @@ abstract class EndPoints {
   static const String refreshToken = "/auth/refresh-token";
   static const String categories = "/categories";
   static const String products = "/products";
+  static String getProductDetails(String productId) => "/products/$productId";
 }

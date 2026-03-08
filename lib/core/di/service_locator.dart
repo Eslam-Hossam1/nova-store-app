@@ -22,6 +22,9 @@ import 'package:nova_store_app/features/home/domain/usecases/get_categories_usec
 import 'package:nova_store_app/features/home/domain/usecases/get_products_usecase.dart';
 import 'package:nova_store_app/features/otp/data/data_sources/otp_remote_data_source_impl.dart';
 import 'package:nova_store_app/features/otp/data/repos/otp_repo_impl.dart';
+import 'package:nova_store_app/features/product-details/data/datasources/product_details_remote_data_source/product_details_remote_data_source_impl.dart';
+import 'package:nova_store_app/features/product-details/data/repos/product_details_repo_impl.dart';
+import 'package:nova_store_app/features/product-details/domain/usecases/get_product_details_usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
@@ -77,6 +80,15 @@ Future<void> setupServiceLocator() async {
     () => GetCategoryProductsUseCase(
       categoryProductsRepo: CategoryProductsRepoImpl(
         remoteDataSource: CategoryProductsRemoteDataSourceImpl(
+          apiConsumer: getIt<DioConsumer>(),
+        ),
+      ),
+    ),
+  );
+  getIt.registerLazySingleton<GetProductDetailsUseCase>(
+    () => GetProductDetailsUseCase(
+      productDetailsRepo: ProductDetailsRepoImpl(
+        remoteDataSource: ProductDetailsRemoteDataSourceImpl(
           apiConsumer: getIt<DioConsumer>(),
         ),
       ),

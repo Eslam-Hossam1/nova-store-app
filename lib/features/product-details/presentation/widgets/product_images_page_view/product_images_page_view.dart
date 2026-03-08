@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:nova_store_app/core/utils/constants.dart';
 import 'package:nova_store_app/core/widgets/custom_cached_network_image.dart';
+import 'package:nova_store_app/features/product-details/presentation/manager/manager/product_details_cubit/product_details_cubit.dart';
 import 'package:nova_store_app/features/product-details/presentation/widgets/product_images_page_view/product_images_page_indicator.dart';
 
 class ProductImagesPageView extends StatefulWidget {
@@ -15,12 +15,6 @@ class ProductImagesPageView extends StatefulWidget {
 class _ProductImagesPageViewState extends State<ProductImagesPageView> {
   late final ValueNotifier<int> _currentIndexNotifier;
   late final PageController _pageController;
-
-  static const List<String> _imageUrls = [
-    Constants.categoryImageUrlTest,
-    Constants.categoryImageUrlTest,
-    Constants.categoryImageUrlTest,
-  ];
 
   @override
   void initState() {
@@ -42,6 +36,7 @@ class _ProductImagesPageViewState extends State<ProductImagesPageView> {
 
   @override
   Widget build(BuildContext context) {
+    final images = context.read<ProductDetailsCubit>().productDetailsEntity.images;
     return AspectRatio(
       aspectRatio: 1,
       child: Stack(
@@ -50,10 +45,10 @@ class _ProductImagesPageViewState extends State<ProductImagesPageView> {
             controller: _pageController,
             scrollDirection: Axis.horizontal,
             onPageChanged: _onPageChanged,
-            itemCount: _imageUrls.length,
+            itemCount: images.length,
             itemBuilder: (context, index) {
               return CustomCachedNetworkImage(
-                url: _imageUrls[index],
+                url: images[index],
               );
             },
           ),
@@ -63,7 +58,7 @@ class _ProductImagesPageViewState extends State<ProductImagesPageView> {
             right: 0,
             child: ProductImagesPageIndicator(
               currentIndexNotifier: _currentIndexNotifier,
-              itemCount: _imageUrls.length,
+              itemCount: images.length,
             ),
           ),
         ],
