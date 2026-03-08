@@ -14,7 +14,8 @@ class ProductDetailsReviewsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final comments = context.read<ProductDetailsCubit>().productDetailsEntity.comments;
+    final comments =
+        context.read<ProductDetailsCubit>().productDetailsEntity.comments;
     return ProductDetailsSectionsBackgroundContainer(
       applyBottomPadding: false,
       child: Column(
@@ -73,6 +74,18 @@ class _ReviewItem extends StatelessWidget {
           comment.comment,
           style: AppTextStyles.regular14(context).copyWith(
             color: context.mainTextColor,
+          ),
+        ),
+        const HeightSpace(height: 8),
+        GestureDetector(
+          onTap: () {},
+          child: Text(
+            'Comment',
+            style: AppTextStyles.regular12(context).copyWith(
+              color: const Color(0xff605A65),
+              decoration: TextDecoration.underline,
+              decorationColor: const Color(0xff605A65),
+            ),
           ),
         ),
       ],
