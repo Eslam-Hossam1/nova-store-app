@@ -8,15 +8,22 @@ class CustomTextButton extends StatelessWidget {
     this.width,
     required this.text,
     required this.onPressed,
+    this.isLoading = false,
+    this.height,
   });
   final double? width;
   final String text;
   final VoidCallback onPressed;
+  final bool isLoading;
+  final double? height;
+
   @override
   Widget build(BuildContext context) {
     return CustomButton(
       onPressed: onPressed,
+      isLoading: isLoading,
       width: width,
+      height: height,
       child: Text(
         textAlign: TextAlign.center,
         text,

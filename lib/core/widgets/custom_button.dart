@@ -11,18 +11,22 @@ class CustomButton extends StatelessWidget {
     this.width,
     this.borderRadius,
     this.verticalPadding,
+    this.height,
+    this.isLoading = false,
   });
   final Color? backgroundColor;
   final Widget child;
+  final bool isLoading;
   final VoidCallback? onPressed;
   final double? width;
   final double? borderRadius;
   final double? verticalPadding;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
-      height: 64.h - 6.h,
+      height: height ?? 64.h - 6.h,
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: backgroundColor ?? context.secondaryColor,
@@ -31,12 +35,14 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: verticalPadding ?? 6.h,
-          ),
-          child: child,
-        ),
+        child: isLoading
+            ? Center(child: CircularProgressIndicator(color: Colors.white))
+            : Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: verticalPadding ?? 6.h,
+                ),
+                child: child,
+              ),
       ),
     );
   }

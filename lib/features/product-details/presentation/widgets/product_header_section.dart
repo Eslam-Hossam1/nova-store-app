@@ -39,7 +39,7 @@ class ProductHeaderSection extends StatelessWidget {
               Text(
                 inStock ? 'In Stock' : 'Out of Stock',
                 style: AppTextStyles.bold12(context).copyWith(
-                  color: inStock ? AppColors.green : AppColors.lightSecondary,
+                  color: inStock ? AppColors.green : AppColors.red,
                 ),
               ),
             ],
