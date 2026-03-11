@@ -6,6 +6,7 @@ import 'package:nova_store_app/core/theme/app_text_styles.dart';
 import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/core/widgets/custom_button.dart';
 import 'package:nova_store_app/core/widgets/spacing/height_space.dart';
+import 'package:nova_store_app/features/product-details/domain/entities/product_comment_entity.dart';
 import 'package:nova_store_app/features/product-details/domain/params/add_comment_param.dart';
 import 'package:nova_store_app/features/product-details/presentation/manager/manager/add_comment_cubit/add_comment_cubit.dart';
 import 'package:nova_store_app/features/product-details/presentation/manager/manager/product_details_cubit/product_details_cubit.dart';
@@ -128,6 +129,13 @@ class _AddCommentBottomSheetState extends State<AddCommentBottomSheet> {
               BlocConsumer<AddCommentCubit, AddCommentState>(
                 listener: (context, state) {
                   if (state is AddCommentSuccess) {
+                    context.read<ProductDetailsCubit>().prependComment(
+                          ProductCommentEntity(
+                            userId: 'asdfasdfasfd',
+                            rate: _selectedRate,
+                            comment: comment.trim(),
+                          ),
+                        );
                     DialogHelper.showSuccessDialog(
                       context,
                       successMessage: 'Comment added successfully!',

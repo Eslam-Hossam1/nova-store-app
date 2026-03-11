@@ -16,6 +16,10 @@ final class ProductDetailsSuccess extends ProductDetailsState {
   const ProductDetailsSuccess();
 }
 
+final class ProductDetailsCommentAdded extends ProductDetailsState {
+  const ProductDetailsCommentAdded();
+}
+
 final class ProductDetailsFailure extends ProductDetailsState {
   final String errorMessage;
   const ProductDetailsFailure({required this.errorMessage});

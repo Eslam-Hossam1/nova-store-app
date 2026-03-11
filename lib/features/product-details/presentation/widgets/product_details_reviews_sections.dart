@@ -14,49 +14,58 @@ class ProductDetailsReviewsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final comments =
-        context.read<ProductDetailsCubit>().productDetailsEntity.comments;
-    return ProductDetailsSectionsBackgroundContainer(
-      applyBottomPadding: false,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ProductDetailsSectionsTitleWithSeeAll(
-            title: 'Reviews (${comments.length})',
-          ),
-          const HeightSpace(height: 16),
-          if (comments.isEmpty)
-            Text(
-              'No reviews yet.',
-              style: AppTextStyles.regular14(context)
-                  .copyWith(color: context.mainTextColor),
-            )
-          else
-            ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: comments.length.clamp(0, 3),
-              separatorBuilder: (_, __) => const HeightSpace(height: 16),
-              itemBuilder: (context, index) {
-                final comment = comments[index];
-                return ReviewItem(comment: comment);
-              },
-            ),
-          const HeightSpace(height: 16),
-          GestureDetector(
-            onTap: () => AddCommentBottomSheet.show(context),
-            child: Text(
-              'Comment',
-              style: AppTextStyles.regular12(context).copyWith(
-                color: const Color(0xff605A65),
-                decoration: TextDecoration.underline,
-                decorationColor: const Color(0xff605A65),
+    return BlocBuilder<ProductDetailsCubit, ProductDetailsState>(
+      buildWhen: (_, current) =>
+          current is ProductDetailsSuccess ||
+          current is ProductDetailsCommentAdded,
+      builder: (context, _) {
+        final allComments =
+            context.read<ProductDetailsCubit>().productDetailsEntity.comments;
+        final displayedComments = allComments.take(3).toList();
+        return ProductDetailsSectionsBackgroundContainer(
+          applyBottomPadding: false,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ProductDetailsSectionsTitleWithSeeAll(
+                title: 'Reviews (${allComments.length})',
               ),
-            ),
+              const HeightSpace(height: 16),
+              if (displayedComments.isEmpty)
+                Text(
+                  'No reviews yet.',
+                  style: AppTextStyles.regular14(context)
+                      .copyWith(color: context.mainTextColor),
+                )
+              else
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: displayedComments.length,
+                  separatorBuilder: (_, __) => const HeightSpace(height: 16),
+                  itemBuilder: (context, index) {
+                    final comment = displayedComments[index];
+                    return ReviewItem(comment: comment);
+                  },
+                ),
+              const HeightSpace(height: 16),
+              GestureDetector(
+                onTap: () => AddCommentBottomSheet.show(context),
+                child: Text(
+                  'Comment',
+                  style: AppTextStyles.regular12(context).copyWith(
+                    color: const Color(0xff605A65),
+                    decoration: TextDecoration.underline,
+                    decorationColor: const Color(0xff605A65),
+                  ),
+                ),
+              ),
+              const HeightSpace(height: 16),
+            ],
           ),
-          const HeightSpace(height: 16),
-        ],
-      ),
+        );
+      },
     );
   }
 }
+

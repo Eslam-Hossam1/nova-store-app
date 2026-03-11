@@ -34,7 +34,8 @@ class ProductDetailsViewBody extends StatelessWidget {
           );
         }
 
-        if (state is ProductDetailsSuccess) {
+        if (state is ProductDetailsSuccess ||
+            state is ProductDetailsCommentAdded) {
           return const CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
