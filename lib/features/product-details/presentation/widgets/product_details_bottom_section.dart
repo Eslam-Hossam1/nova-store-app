@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nova_store_app/core/extensions/clamping.dart';
 import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/core/widgets/Custom_text_button.dart';
@@ -37,7 +38,9 @@ class ProductDetailsBottomSection extends StatelessWidget {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pop();
+                },
                 icon: Icon(
                   Icons.arrow_back_rounded,
                   size: 24.w.clampLessEighthAndMoreEighth(24),

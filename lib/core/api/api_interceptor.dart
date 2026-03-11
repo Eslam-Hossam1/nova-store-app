@@ -1,12 +1,13 @@
 import 'dart:developer';
+
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nova_store_app/core/api/api_keys.dart';
 import 'package:nova_store_app/core/api/end_points.dart';
 import 'package:nova_store_app/core/auth/auth_credentials_manager.dart';
 import 'package:nova_store_app/core/helpers/dialog_helper.dart';
 import 'package:nova_store_app/core/routing/app_router.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nova_store_app/core/routing/routes_paths.dart';
 
 class ApiInterceptor extends Interceptor {
@@ -25,7 +26,7 @@ class ApiInterceptor extends Interceptor {
 
     options.headers[ApiKeys.authorization] = "Bearer $token";
     options.headers[ApiKeys.client] = "not-browser";
-
+    log(options.headers[ApiKeys.authorization]);
     super.onRequest(options, handler);
   }
 
@@ -55,11 +56,12 @@ class ApiInterceptor extends Interceptor {
           return handler.resolve(response);
         } else {
           _handleSessionEnd();
+          return; 
         }
       } catch (e) {
         log(e.toString());
-
         _handleSessionEnd();
+        return; 
       }
     }
 
@@ -67,9 +69,10 @@ class ApiInterceptor extends Interceptor {
   }
 
   Future<Response<dynamic>> _retry(RequestOptions requestOptions) async {
+    
     final options = Options(
       method: requestOptions.method,
-      headers: requestOptions.headers,
+      extra: requestOptions.extra,
     );
 
     return client.request<dynamic>(
@@ -86,13 +89,18 @@ class ApiInterceptor extends Interceptor {
         ApiKeys.refreshToken: "Bearer ${authCredentialsHelper.refreshToken}",
       });
 
-      final json = response.data;
-      final newAccessToken = json[ApiKeys.newAccessToken];
+      final tokens = response.data['tokens'];
+      final newAccessToken = tokens[ApiKeys.accessToken] as String;
+      final newRefreshToken = tokens[ApiKeys.refreshToken] as String;
 
-      await authCredentialsHelper.storeAccessToken(newAccessToken);
+      await authCredentialsHelper.storeTokens(
+        accessToken: newAccessToken,
+        refreshToken: newRefreshToken,
+      );
 
       return true;
     } catch (e) {
+      log('_refreshToken failed: $e');
       return false;
     }
   }

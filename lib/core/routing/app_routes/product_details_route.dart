@@ -12,7 +12,7 @@ class ProductDetailsRoute {
   static GoRoute productDetails = GoRoute(
     path: RoutePaths.productDetails,
     builder: (context, state) {
-      const String productId = "6918dd4d2bbbcaedbc8105aa";
+      final productId = state.pathParameters['productId']!;
       return MultiBlocProvider(
         providers: [
           BlocProvider(
