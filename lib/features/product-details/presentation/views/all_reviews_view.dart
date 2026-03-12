@@ -6,6 +6,6 @@ class AllReviewsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: SafeArea(child: AllReviewsViewBody()));
+    return const Scaffold(body: AllReviewsViewBody());
   }
 }
