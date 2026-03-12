@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:nova_store_app/features/product-details/domain/usecases/get_product_comments_usecase.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nova_store_app/core/api/dio_consumer.dart';
@@ -95,8 +96,19 @@ Future<void> setupServiceLocator() async {
       ),
     ),
   );
+
   getIt.registerLazySingleton<AddCommentUseCase>(
     () => AddCommentUseCase(
+      productDetailsRepo: ProductDetailsRepoImpl(
+        remoteDataSource: 
+        ProductDetailsRemoteDataSourceImpl(
+          apiConsumer: getIt<DioConsumer>(),
+        ),
+      ),
+    ),
+  );
+  getIt.registerLazySingleton<GetProductCommentsUseCase>(
+    () => GetProductCommentsUseCase(
       productDetailsRepo: ProductDetailsRepoImpl(
         remoteDataSource: ProductDetailsRemoteDataSourceImpl(
           apiConsumer: getIt<DioConsumer>(),

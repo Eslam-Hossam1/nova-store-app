@@ -10,4 +10,6 @@ abstract class RoutePaths {
   static String productDetailsPath(String productId) =>
       "/product-details/$productId";
   static const profile = "/profile";
+  static const allReviews = "/all-reviews/:productId";
+  static String allReviewsPath(String productId) => "/all-reviews/$productId";
 }

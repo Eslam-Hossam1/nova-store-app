@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nova_store_app/core/routing/routes_paths.dart';
 import 'package:nova_store_app/core/theme/app_text_styles.dart';
 import 'package:nova_store_app/core/theme/theme_colors_extension.dart';
 import 'package:nova_store_app/core/widgets/spacing/height_space.dart';
@@ -29,6 +31,8 @@ class ProductDetailsReviewsSection extends StatelessWidget {
             children: [
               ProductDetailsSectionsTitleWithSeeAll(
                 title: 'Reviews (${allComments.length})',
+                onTap: () => context.push(RoutePaths.allReviewsPath(
+                    context.read<ProductDetailsCubit>().productId)),
               ),
               const HeightSpace(height: 16),
               if (displayedComments.isEmpty)
