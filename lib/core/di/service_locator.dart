@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:nova_store_app/features/product-details/domain/usecases/get_product_comments_usecase.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nova_store_app/core/api/dio_consumer.dart';
@@ -22,6 +23,10 @@ import 'package:nova_store_app/features/home/domain/usecases/get_categories_usec
 import 'package:nova_store_app/features/home/domain/usecases/get_products_usecase.dart';
 import 'package:nova_store_app/features/otp/data/data_sources/otp_remote_data_source_impl.dart';
 import 'package:nova_store_app/features/otp/data/repos/otp_repo_impl.dart';
+import 'package:nova_store_app/features/product-details/data/datasources/product_details_remote_data_source/product_details_remote_data_source_impl.dart';
+import 'package:nova_store_app/features/product-details/data/repos/product_details_repo_impl.dart';
+import 'package:nova_store_app/features/product-details/domain/usecases/add_comment_usecase.dart';
+import 'package:nova_store_app/features/product-details/domain/usecases/get_product_details_usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
@@ -77,6 +82,35 @@ Future<void> setupServiceLocator() async {
     () => GetCategoryProductsUseCase(
       categoryProductsRepo: CategoryProductsRepoImpl(
         remoteDataSource: CategoryProductsRemoteDataSourceImpl(
+          apiConsumer: getIt<DioConsumer>(),
+        ),
+      ),
+    ),
+  );
+  getIt.registerLazySingleton<GetProductDetailsUseCase>(
+    () => GetProductDetailsUseCase(
+      productDetailsRepo: ProductDetailsRepoImpl(
+        remoteDataSource: ProductDetailsRemoteDataSourceImpl(
+          apiConsumer: getIt<DioConsumer>(),
+        ),
+      ),
+    ),
+  );
+
+  getIt.registerLazySingleton<AddCommentUseCase>(
+    () => AddCommentUseCase(
+      productDetailsRepo: ProductDetailsRepoImpl(
+        remoteDataSource: 
+        ProductDetailsRemoteDataSourceImpl(
+          apiConsumer: getIt<DioConsumer>(),
+        ),
+      ),
+    ),
+  );
+  getIt.registerLazySingleton<GetProductCommentsUseCase>(
+    () => GetProductCommentsUseCase(
+      productDetailsRepo: ProductDetailsRepoImpl(
+        remoteDataSource: ProductDetailsRemoteDataSourceImpl(
           apiConsumer: getIt<DioConsumer>(),
         ),
       ),

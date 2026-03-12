@@ -6,6 +6,10 @@ abstract class RoutePaths {
   static const signUp = "/sign-up";
   static const otp = "/otp";
   static const category = "/category";
-  static const productDetails = "/product-details";
+  static const productDetails = "/product-details/:productId";
+  static String productDetailsPath(String productId) =>
+      "/product-details/$productId";
   static const profile = "/profile";
+  static const allReviews = "/all-reviews/:productId";
+  static String allReviewsPath(String productId) => "/all-reviews/$productId";
 }
